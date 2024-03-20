@@ -6,7 +6,9 @@ editor: visual
 
 **High level goal**: Our main goal with this project is to explore how Mondrian’s art can be illustrated and transformed with ggplot2.
 
-**A one to two paragraph description of your goals, including your motivation.** Write here.
+**A one to two paragraph description of your goals, including your motivation.**
+
+(expand this) We also hope to explore the relationships between his works by transforming each piece into the next. We’ll do this by animating the process of expanding boxes, changing positions and colors.
 
 **A weekly “plan of attack” outlining your steps to complete your project and including the team member(s) assigned to that task.**
 
