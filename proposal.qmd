@@ -38,11 +38,19 @@ One of our major goals for this project is to offer a new perspective on interpr
 
         -   Team member #1: image 1 + research gganimate
 
+            ![image 1](images/Mondrian 1.jpg){width="320"}
+
         -   Team member #2: image 2
+
+        ![image 2](images/Mondrian 2.jpg){width="320"}
 
         -   Team member #3: image 3
 
+        ![image 3](images/Mondrian 3.jpg){width="320"}
+
         -   Team member #4: image 4
+
+-   ![image 4](images/Mondrian 4.jpg){width="320"}
 
 -   [Week 4]{.underline} (April 10 - 17): Grind out the project
 
