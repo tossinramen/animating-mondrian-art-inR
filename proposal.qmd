@@ -36,19 +36,31 @@ One of our major goals for this project is to offer a new perspective on interpr
 
     -   Each person will start with an image and try to create datasets:
 
-        -   Team member #1: image 1 + research gganimate
+        -   Sophie: image 1 + research gganimate
 
-        -   Team member #2: image 2
+            ![image 1](images/Mondrian%201.jpg){width="320"}
 
-        -   Team member #3: image 3
+        -   Lara: image 2
 
-        -   Team member #4: image 4
+        ![image 2](images/Mondrian%202.jpg){width="320"}
+
+        -   Tahsin: image 3
+
+        ![image 3](images/Mondrian%203.jpg){width="320"}
+
+        -   Ishrit: image 4
+
+-   
+
+    ![image 4](images/Mondrian%204.jpg){width="320"}
 
 -   [Week 4]{.underline} (April 10 - 17): Grind out the project
 
     -   Team members will focus on their respective images
 
-    -   Also, each team member will be responsible in creating the 'animation' data for the transitions between their image and another
+    -   Also, each team member will be responsible for creating the 'animation' data for the transitions between one image and another.
+
+        -   These transitions will work by starting by looking at the major differences between our base images. Then, depending on what is majorly different, we hope to expand lines, place them in different areas, move boxes, change colors, etc. We hope to make these transitions smooth, so we would need a lot of "transition" datasets, making minor changes within each one.
 
 -   [Week 5]{.underline} (April 17 - 24): Focus on debugging (slow down a bit for tests)
 
@@ -59,3 +71,5 @@ One of our major goals for this project is to offer a new perspective on interpr
 **The final organization of your project repository. This means describing the project organization in your proposal as well as implementing that organization in your repo. Create any folders needed and place a `README.md` in each folder explaining what goes in there.**
 
 Note on project repository: We won't require folders since we'll be doing a single animation between the 3 - 4 selected images. Our first idea for this project is to do this using a series of ggplots with lines, segments, and rectangles. We'll than animate it by making many frames in between. Should we choose to switch over to gganimate instead, we will swap to a separate folder for each intermediary that's required, and make the relevant folders.
+
+Also, we are placing the original photos in the images folder. These are just for our reference and for people who view our repository.
