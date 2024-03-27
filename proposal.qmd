@@ -8,9 +8,9 @@ editor: visual
 
 **A one to two paragraph description of your goals, including your motivation.**
 
-We hope to explore the relationships between Mondrian's works by transforming each piece into the next. We’ll do this by animating the process of expanding boxes, changing positions and colors. Our motivation for this project stems from our fascination with Mondrian's ability to convey aesthic meanings through minimalistic compositions, along with our desire to learn how to animate with ggplot2, something none of us have yet explored.
+We hope to explore the relationships between Mondrian's works by transforming each piece into the next. We’ll do this by animating the process of expanding boxes and changing positions and colors. Our motivation for this project stems from our fascination with Mondrian's ability to convey aesthetic meanings through minimalistic compositions and our desire to learn how to animate with ggplot2, something none of us have yet explored.
 
-One of the major goals we have while working on this project is to offer a new perspective on interpreting art with data visualization using ggplot2. By working on animating the transormation of one piece into a another we hope to drastically increase our skills in the visualization field of R while also visualizing Mondrian's artistic journey and expertise through animating expanding boxes and changing positions. We hope that this process will help us uncover any patterns in Mondrian's work and help us better understand the thought process Mondrian had while creating his work.
+One of our major goals for this project is to offer a new perspective on interpreting art with data visualization using ggplot2. By animating the transformation of one piece into another, we hope to add another skill to our visualization toolbox in animation. We hope this process will help us uncover any patterns in Mondrian's work and help us better understand the thought process Mondrian had while creating his work.
 
 **A weekly “plan of attack” outlining your steps to complete your project and including the team member(s) assigned to that task.**
 
@@ -48,7 +48,7 @@ One of the major goals we have while working on this project is to offer a new p
 
     -   Team members will focus on their respective images
 
-    -   Also, each team member will be responsible in creating the 'animation' data for the transitions between their image and another
+    -   Also, each team member will be responsible for creating the 'animation' data for the transitions between one image and another. These transitions will work by starting by looking at the major differences between our base images. Then, depending on what is majorly different, we hope to expand lines, place them in different areas, move boxes, change colors, etc.
 
 -   [Week 5]{.underline} (April 17 - 24): Focus on debugging (slow down a bit for tests)
 
@@ -57,3 +57,5 @@ One of the major goals we have while working on this project is to offer a new p
 *Note: For the future weeks, tasks will be split up more accurately later.*
 
 **The final organization of your project repository. This means describing the project organization in your proposal as well as implementing that organization in your repo. Create any folders needed and place a `README.md` in each folder explaining what goes in there.**
+
+Note on project repository: We won't require folders since we'll be doing a single animation between the 3 - 4 selected images. Our first idea for this project is to do this using a series of ggplots with lines, segments, and rectangles. We'll than animate it by making many frames in between. Should we choose to switch over to gganimate instead, we will swap to a separate folder for each intermediary that's required, and make the relevant folders.
