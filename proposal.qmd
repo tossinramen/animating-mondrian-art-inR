@@ -61,3 +61,5 @@ One of our major goals for this project is to offer a new perspective on interpr
 **The final organization of your project repository. This means describing the project organization in your proposal as well as implementing that organization in your repo. Create any folders needed and place a `README.md` in each folder explaining what goes in there.**
 
 Note on project repository: We won't require folders since we'll be doing a single animation between the 3 - 4 selected images. Our first idea for this project is to do this using a series of ggplots with lines, segments, and rectangles. We'll than animate it by making many frames in between. Should we choose to switch over to gganimate instead, we will swap to a separate folder for each intermediary that's required, and make the relevant folders.
+
+Also, we are placing the original photos in the images folder. These are just for our reference and for people who view our repository.
