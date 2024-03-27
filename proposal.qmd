@@ -48,7 +48,7 @@ One of our major goals for this project is to offer a new perspective on interpr
 
     -   Team members will focus on their respective images
 
-    -   Also, each team member will be responsible in creating the 'animation' data for the transitions between their image and another
+    -   Also, each team member will be responsible for creating the 'animation' data for the transitions between one image and another. These transitions will work by starting by looking at the major differences between our base images. Then, depending on what is majorly different, we hope to expand lines, place them in different areas, move boxes, change colors, etc.
 
 -   [Week 5]{.underline} (April 17 - 24): Focus on debugging (slow down a bit for tests)
 
