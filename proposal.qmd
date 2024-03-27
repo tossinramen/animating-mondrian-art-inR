@@ -16,17 +16,21 @@ One of the major goals we have while working on this project is to offer a new p
 
 -   [Week 1]{.underline} (March 20 - March 27): Work on proposal
 
-    -   Lara: high-level goal
+    -   Lara: Work on writing the high-level goals
 
-    -   Ishrit: description of goals
+    -   Ishrit: description of goals, edit and check for final goals for proposal
 
     -   Sophie: weekly plan of attack
 
-    -   Tahsin: organization of project repo
+    -   Tahsin: organization of project repo, help Ishrit with description of goals
 
 -   [Week 2]{.underline} (March 27 - April 3): Edit proposal / make adjustments
 
-    -   We will discuss feedback as a group, and whoever is most comfortable with that section will make edits
+    -   We will discuss feedback as a group, and whoever is most comfortable with that section will make edits. Here are some suggested ones:
+    -   Lara: Resolve issues for peer review #1
+    -   Sophie: Resolve issues for peer review #2
+    -   Tahsin: Resolve Eli's issues
+    -   Ishrit: Help resolve Eli's issues, peer review issues
 
 -   [Week 3]{.underline} (April 3 - 10): Start creating our own dataset / experiment with gganimate
 
