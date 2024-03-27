@@ -12,4 +12,40 @@ editor: visual
 
 **A weekly “plan of attack” outlining your steps to complete your project and including the team member(s) assigned to that task.**
 
+-   [Week 1]{.underline} (March 20 - March 27): Work on proposal
+
+    -   Lara: high-level goal
+
+    -   Ishrit: description of goals
+
+    -   Sophie: weekly plan of attack
+
+    -   Tahsin: organization of project repo
+
+-   [Week 2]{.underline} (March 27 - April 3): Edit proposal / make adjustments
+
+    -   We will discuss feedback as a group, and whoever is most comfortable with that section will make edits
+
+-   [Week 3]{.underline} (April 3 - 10): Start creating our own dataset / experiment with gganimate
+
+    -   Each person will start with an image and try to create datasets:
+
+        -   Team member #1: image 1 + research gganimate
+
+        -   Team member #2: image 2
+
+        -   Team member #3: image 3
+
+        -   Team member #4: image 4
+
+-   [Week 4]{.underline} (April 10 - 17): Grind out the project
+
+    -   Team members will focus on their respective images
+
+-   [Week 5]{.underline} (April 17 - 24): Focus on debugging (slow down a bit for tests)
+
+-   [Week 6]{.underline} (April 24 - May 1st): FINISH PROJECT AND PRESENTATION
+
+*Note: For the future weeks, tasks will be split up more accurately later.*
+
 **The final organization of your project repository. This means describing the project organization in your proposal as well as implementing that organization in your repo. Create any folders needed and place a `README.md` in each folder explaining what goes in there.**
