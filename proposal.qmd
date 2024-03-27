@@ -36,21 +36,23 @@ One of our major goals for this project is to offer a new perspective on interpr
 
     -   Each person will start with an image and try to create datasets:
 
-        -   Team member #1: image 1 + research gganimate
+        -   Sophie: image 1 + research gganimate
 
-            ![image 1](images/Mondrian 1.jpg){width="320"}
+            ![image 1](images/Mondrian%201.jpg){width="320"}
 
-        -   Team member #2: image 2
+        -   Lara: image 2
 
-        ![image 2](images/Mondrian 2.jpg){width="320"}
+        ![image 2](images/Mondrian%202.jpg){width="320"}
 
-        -   Team member #3: image 3
+        -   Tahsin: image 3
 
-        ![image 3](images/Mondrian 3.jpg){width="320"}
+        ![image 3](images/Mondrian%203.jpg){width="320"}
 
-        -   Team member #4: image 4
+        -   Ishrit: image 4
 
--   ![image 4](images/Mondrian 4.jpg){width="320"}
+-   
+
+    ![image 4](images/Mondrian%204.jpg){width="320"}
 
 -   [Week 4]{.underline} (April 10 - 17): Grind out the project
 
