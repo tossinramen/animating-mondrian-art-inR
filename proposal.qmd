@@ -42,7 +42,7 @@ editor: visual
 
     -   Team members will focus on their respective images
 
-    -   Also, each team member will also be responsible in creating the 'animation' data for the transitions between their image and another
+    -   Also, each team member will be responsible in creating the 'animation' data for the transitions between their image and another
 
 -   [Week 5]{.underline} (April 17 - 24): Focus on debugging (slow down a bit for tests)
 
