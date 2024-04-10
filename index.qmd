@@ -1,0 +1,26 @@
+```{r}
+library(ggplot2)
+library(gganimate)
+```
+
+```{r}
+df <- data.frame(
+  xmin = c(0, 0.5, 0, 0.5),
+  xmax = c(0.5, 1, 0.5, 1),
+  ymin = c(0, 0, 0.5, 0.5),
+  ymax = c(0.5, 0.5, 1, 1),
+  color = factor(c(1, 2, 3, 4))
+)
+
+
+p <- ggplot(df) +
+  geom_rect(aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax, fill=color)) +
+  scale_fill_manual(values = c("red", "blue", "yellow", "white")) +
+  theme_void() +
+  theme(legend.position = "none") 
+
+p_animated <- p + 
+  transition_states(color, transition_length = 2, state_length = 1) +
+  ease_aes('linear')
+p_animated
+```
