@@ -7,4 +7,4 @@ We will use animation in ggplot2 to illustrate and transform Mondrian's art. Our
 
 
 #Data
-We will be creating our own data.
+We will be creating our own data for this project.
