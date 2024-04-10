@@ -76,14 +76,17 @@ pal <- c("#255293","#db0a16","#f8c72d")
 set.seed(1)
 
 
-df=data.frame(x=c(2,8,9.2,10),y=c(0,0,0,0))
+#df=data.frame(x=c(1,2.8,8,9.2,10),y=c(4.5,6.5,0,0,0))
+x_values = data.frame(x = c(1,2.8,8,9.2,10))
+y_values=data.frame(y = c(4, 5, 7))
 
-df_rect <- find_small_squares(df, 3)
+#df_rect <- find_small_squares(df, 3)
 
 df |>
   ggplot()+
-  geom_vline(xintercept = df$x, size=3)+
-  geom_hline(yintercept = df$y, size=5) + 
+  geom_vline(xintercept = x_values$x, size=3)+
+  geom_hline(yintercept = y_values$y, size=3) + 
+  coord_cartesian(xlim = c(0,10), ylim = c(0,10))+
   #geom_segment(data=df_add, aes(y=df_add$z, yend=df_add$z,
   #                              x=sample(df$x, nrow(df_add), replace=T),
   #                              xend=sample(df$x, nrow(df_add), replace=T)),
@@ -93,7 +96,7 @@ df |>
   #                            ymin=y + .065,
   #                            ymax=y_lead - .065,
   #          fill=as.factor(color))) +
-  scale_fill_manual(values=pal)+
+  #scale_fill_manual(values=pal)+
   my_theme() 
 
 ```
