@@ -1,0 +1,25 @@
+---
+title: "painting-4"
+output: html_document
+---
+
+```{r}
+library(knitr)
+library(tidyverse)
+library(ggplot2)
+
+my_theme <- function(base_size = 12, base_family = "Helvetica"){
+    theme_minimal() +
+    theme(axis.title.y = element_blank(),axis.title.x = element_blank(),
+    plot.title = element_text(face="bold", size=16),
+    axis.text = element_blank(),
+    plot.background = element_rect(fill = 'ghostwhite',color='white'),
+    panel.grid = element_blank(),
+    legend.position = 'None', legend.title = element_blank())
+}
+```
+
+```{r}
+
+```
+
