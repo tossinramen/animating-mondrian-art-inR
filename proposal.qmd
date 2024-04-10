@@ -4,13 +4,13 @@ format: html
 editor: visual
 ---
 
-**High level goal**: Our main goal with this project is to explore how Mondrian’s art can be illustrated and transformed with ggplot2.
+**High level goal**: Our main goal with this project is to explore how Mondrian’s art can be illustrated and transformed with ggplot2 through the creation of an animation that moves through different Mondrian artworks.
 
 **A one to two paragraph description of your goals, including your motivation.**
 
 We hope to explore the relationships between Mondrian's works by transforming each piece into the next. Mondrian was a Dutch painter who believe in spiritual art that transcended reality. His work is very abstract, and made with many rectables and lines. We’ll do this by animating the process of expanding boxes and changing positions and colors. Our motivation for this project stems from our fascination with Mondrian's ability to convey aesthetic meanings through minimalistic compositions and our desire to learn how to animate with ggplot2, something none of us have yet explored.
 
-One of our major goals for this project is to offer a new perspective on interpreting art with data visualization using ggplot2. By animating the transformation of one piece into another, we hope to add another skill to our visualization toolbox in animation. We hope this process will help us uncover any patterns in Mondrian's work and help us better understand the thought process Mondrian had while creating his work.
+One of our major goals for this project is to offer a new perspective on interpreting art with data visualization using ggplot2. By animating the transformation of one piece into another, we hope to add another skill to our visualization toolbox in animation. We hope this process will help us uncover any patterns in Mondrian's work and help us better understand the thought process Mondrian had while creating his work. We will create an animation that moves through different Mondrian artworks.
 
 **A weekly “plan of attack” outlining your steps to complete your project and including the team member(s) assigned to that task.**
 

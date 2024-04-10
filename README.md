@@ -3,7 +3,8 @@ by Plot-Twisters: Sophie Mansoor, Lara Franca Garcia, Ishrit Gupta, Tahsin Rahma
 
 
 #Description
-We will use animation in ggplot2 to illustrate and transform Mondrian's art.
+We will use animation in ggplot2 to illustrate and transform Mondrian's art. Our final product will be the creation of an animation that moves through different Mondrian artworks.
+
 
 #Data
 We will be creating our own data.
