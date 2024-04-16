@@ -22,20 +22,20 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 set.seed(1)
 
 rectangles = data.frame(
-  xmin = c(3, -0.5, 9), 
-  xmax = c(10.5, 3, 10.5), 
+  xmin = c(2.5, -0.5, 9), 
+  xmax = c(10.5, 2.5, 10.5), 
   ymin = c(3, -0.5, -0.5), 
   ymax = c(10.5, 3, 1.25),
   color = c("red", "blue", "yellow")
 )
 
 
-x_values = data.frame(x = c(3))
+x_values = data.frame(x = c(2.5))
 y_values = data.frame(y = c(3))
 
 half_lines_horizontal = data.frame(
   x_start = c(-0.5, 9), 
-  x_end = c(3, 10.5), 
+  x_end = c(2.5, 10.5), 
   y = c(7, 1.25)
 )
 
