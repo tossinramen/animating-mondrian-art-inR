@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>tahsin</title>
+<title>sophie</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,16 +57,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="tahsin_files/libs/clipboard/clipboard.min.js"></script>
-<script src="tahsin_files/libs/quarto-html/quarto.js"></script>
-<script src="tahsin_files/libs/quarto-html/popper.min.js"></script>
-<script src="tahsin_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="tahsin_files/libs/quarto-html/anchor.min.js"></script>
-<link href="tahsin_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="tahsin_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="tahsin_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="tahsin_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="tahsin_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="sophie_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sophie_files/libs/quarto-html/quarto.js"></script>
+<script src="sophie_files/libs/quarto-html/popper.min.js"></script>
+<script src="sophie_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sophie_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sophie_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sophie_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="sophie_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sophie_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sophie_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -110,42 +110,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rectangles <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xmin =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">2.5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="fl">7.5</span>),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xmax =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">3.5</span>, <span class="dv">6</span>, <span class="fl">7.5</span>, <span class="fl">9.7</span>),</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ymin =</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="dv">0</span>, <span class="fl">7.5</span>, .<span class="dv">5</span>, <span class="dv">4</span>),</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ymax =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">7.5</span>, <span class="dv">2</span>, <span class="dv">10</span>),</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"#E8B600"</span>, <span class="st">"white"</span>, <span class="st">"white"</span>, <span class="st">"#CC0000"</span>, <span class="st">"white"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rectangles <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xmin =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">9</span>), </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xmax =</span> <span class="fu">c</span>(<span class="fl">10.5</span>, <span class="fl">2.5</span>, <span class="fl">10.5</span>), </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ymin =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.5</span>), </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ymax =</span> <span class="fu">c</span>(<span class="fl">10.5</span>, <span class="dv">3</span>, <span class="fl">1.25</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"yellow"</span>)</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>vertical_lines <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="fl">7.5</span>, <span class="dv">8</span>, <span class="fl">9.7</span>),</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">10</span>, <span class="dv">8</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>horizontal_lines <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>),</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="fl">7.5</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> rectangles, <span class="fu">aes</span>(<span class="at">xmin =</span> xmin, <span class="at">xmax =</span> xmax, <span class="at">ymin =</span> ymin, <span class="at">ymax =</span> ymax, <span class="at">fill =</span> color)) <span class="sc">+</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> vertical_lines, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">xend =</span> x, <span class="at">yend =</span> y), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> horizontal_lines, <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">y =</span> y, <span class="at">xend =</span> x, <span class="at">yend =</span> y), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data=</span> horizontal_lines, <span class="fu">aes</span>(<span class="at">x=</span><span class="fl">1.1</span>, <span class="at">y=</span><span class="fl">0.25</span>, <span class="at">xend=</span><span class="fl">3.9</span>, <span class="at">yend=</span><span class="fl">0.25</span>), <span class="at">color =</span> <span class="st">"#1B6FAA"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data=</span> horizontal_lines, <span class="fu">aes</span>(<span class="at">x=</span><span class="fl">2.6</span>, <span class="at">y=</span><span class="dv">0</span>, <span class="at">xend=</span><span class="fl">3.39</span>, <span class="at">yend=</span><span class="dv">0</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data=</span> horizontal_lines, <span class="fu">aes</span>(<span class="at">x=</span><span class="dv">6</span>, <span class="at">y=</span><span class="fl">0.4</span>, <span class="at">xend=</span><span class="dv">8</span>, <span class="at">yend=</span><span class="fl">0.4</span>), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data=</span> horizontal_lines, <span class="fu">aes</span>(<span class="at">x=</span><span class="dv">6</span>, <span class="at">y=</span><span class="sc">-</span><span class="fl">0.25</span>, <span class="at">xend=</span><span class="dv">8</span>, <span class="at">yend=</span><span class="sc">-</span>.<span class="dv">25</span>), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data=</span>horizontal_lines, <span class="fu">aes</span>(<span class="at">x=</span><span class="fl">9.8</span>, <span class="at">y=</span><span class="fl">0.3</span>, <span class="at">xend=</span><span class="dv">10</span>, <span class="at">yend=</span><span class="fl">0.3</span>), <span class="at">color=</span><span class="st">"#CC0000"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_identity</span>() <span class="sc">+</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_theme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>x_values <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fl">2.5</span>))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>y_values <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>half_lines_horizontal <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_start =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">9</span>), </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_end =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">10.5</span>), </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="fl">1.25</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>half_lines_vertical <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">9</span>,             </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_start =</span> <span class="sc">-</span><span class="fl">0.5</span>,       </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_end =</span> <span class="dv">3</span>          </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> rectangles, <span class="fu">aes</span>(<span class="at">xmin =</span> xmin, <span class="at">xmax =</span> xmax, <span class="at">ymin =</span> ymin, </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">ymax =</span> ymax, <span class="at">fill =</span> <span class="fu">as.factor</span>(color))) <span class="sc">+</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> x_values<span class="sc">$</span>x, <span class="at">linewidth =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> y_values<span class="sc">$</span>y, <span class="at">linewidth =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> half_lines_horizontal, <span class="fu">aes</span>(<span class="at">x =</span> x_start, <span class="at">xend =</span> x_end, <span class="at">y =</span> y),</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> half_lines_vertical, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y_start, <span class="at">xend =</span> x, </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">yend =</span> y_end), <span class="at">linewidth =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span> <span class="ot">=</span> <span class="st">"#255293"</span>, <span class="st">"red"</span> <span class="ot">=</span> <span class="st">"#db0a16"</span>, </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"yellow"</span> <span class="ot">=</span> <span class="st">"yellow"</span>)) <span class="sc">+</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_theme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="tahsin_files/figure-html/ny-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="sophie_files/figure-html/paris-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>

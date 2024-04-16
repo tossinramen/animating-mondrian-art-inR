@@ -17,7 +17,7 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 }
 ```
 
-```{r ny, fig.width = 4,  fig.height = 5}
+```{r ny, fig.width = 5,  fig.height = 5}
 #| warning: false
 set.seed(1)
 

@@ -45,7 +45,6 @@ half_lines_vertical = data.frame(
   y_end = 3          
 )
 
-df |>
   ggplot() +
   geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, 
                                    ymax = ymax, fill = as.factor(color))) +
