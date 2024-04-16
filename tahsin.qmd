@@ -11,7 +11,7 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
     theme(axis.title.y = element_blank(),axis.title.x = element_blank(),
     plot.title = element_text(face="bold", size=16),
     axis.text = element_blank(),
-    plot.background = element_rect(fill = 'ghostwhite',color='white'),
+    plot.background = element_rect(fill = 'white',color=NA),
     panel.grid = element_blank(),
     legend.position = 'None', legend.title = element_blank())
 }
