@@ -51,6 +51,7 @@ ggplot() +
   geom_segment(data= horizontal_lines, aes(x=6, y=0.4, xend=8, yend=0.4), color = "black", size = 3) +
   geom_segment(data= horizontal_lines, aes(x=6, y=-0.25, xend=8, yend=-.25), color = "black", size = 3) +
   geom_segment(data=horizontal_lines, aes(x=9.8, y=0.3, xend=10, yend=0.3), color="#CC0000", size = 3) +
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 9.7)) +
   scale_fill_identity() +
   my_theme()
 ```
