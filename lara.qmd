@@ -76,7 +76,7 @@ pal <- c("#255293","#db0a16","#f8c72d")
 set.seed(1)
 
 
-df=data.frame(x=c(2,8,9.2,10),y=c(0,0,0,0))
+df=data.frame(x=c(3,8,8.2,10),y=c(0,0,0,0))
 
 df_rect <- find_small_squares(df, 3)
 
