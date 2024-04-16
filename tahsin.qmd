@@ -43,7 +43,7 @@ horizontal_lines <- data.frame(
 
 
 ggplot() +
-  geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = color), color = "black") +
+  geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = color)) +
   geom_segment(data = vertical_lines, aes(x = x, y = -0.5, xend = x, yend = y), color = "black", size = 2) +
   geom_segment(data = horizontal_lines, aes(x = -0.5, y = y, xend = x, yend = y), color = "black", size = 4) +
   geom_segment(data= horizontal_lines, aes(x=1.1, y=0.3, xend=3.9, yend=0.3), color = "#1B6FAA", size = 3) +
