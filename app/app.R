@@ -4,7 +4,7 @@ library(tidyverse)
 library(RColorBrewer)
 
 ui <- fluidPage(
-  titlePanel("Interactive Art Gallery"),
+  titlePanel("Mondrian Art"),
   sidebarLayout(
     sidebarPanel(
       selectInput("artPeriod", "Select Art Period:",
@@ -31,7 +31,7 @@ server <- function(input, output, session) {
   
 
   color_palettes <- list(
-    ryb = c("#FF0000", "#FFFF00", "#0000FF"),
+    ryb = c("#CC0000", "#FFFF00", "#0000FF"),
     cmyk = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
     grayscale = c("#000000", "#555555", "#AAAAAA", "#FFFFFF"),
     modern = c("#800080", "#00FF00", "#FFA500", "#FFC0CB")
@@ -66,7 +66,7 @@ server <- function(input, output, session) {
         xmax = c(10.5, 2.5, 10.5),
         ymin = c(3, -0.5, -0.5),
         ymax = c(10.5, 3, 1.25),
-        color = c("red", "blue", "yellow")
+        color = c("#CC0000", "blue", "yellow")
       )
       x_values <- data.frame(x = c(2.5))
       y_values <- data.frame(y = c(3))
