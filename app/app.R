@@ -1,10 +1,16 @@
+
 library(shiny)
 library(ggplot2)
 library(tidyverse)
 library(RColorBrewer)
+library(thematic)
+library(shinythemes)
 
 ui <- fluidPage(
   titlePanel("Mondrian Art"),
+  
+  theme = shinytheme("cyborg"),
+  
   sidebarLayout(
     sidebarPanel(
       selectInput("artPeriod", "Select Art Period:",
@@ -18,14 +24,17 @@ ui <- fluidPage(
                   min = 0, max = 10, value = 2),
       sliderInput("moveLines", "Move Lines (Left/Right or Up/Down):",
                   min = -5, max = 5, value = 0),
-      tags$head(tags$style(HTML('
-        #colorScheme .irs-grid-text {font-size: 10px; padding-top: 25px;}
-        #colorScheme .irs-grid-pol.small {top: 20px;}
-        #colorScheme .irs {margin-top: 0px;}
-        #colorScheme .irs-with-grid {bottom: 0px;}
-      '))),
-      div(style = "display: flex; justify-content: space-between; padding-right: 20px; padding-left: 20px;",
-          span("RYB"), span("CMYK"), span("Grayscale"), span("Modern")  # Labels for the slider positions
+      tags$head(
+        tags$style(HTML('
+          #colorScheme .irs-grid-text {font-size: 10px; padding-top: 25px;}
+          #colorScheme .irs-grid-pol.small {top: 20px;}
+          #colorScheme .irs {margin-top: 0px;}
+          #colorScheme .irs-with-grid {bottom: 0px;}
+        '))
+      ),
+      div(
+        style = "display: flex; justify-content: space-between; padding-right: 20px; padding-left: 20px;",
+        span("RYB"), span("CMYK"), span("Grayscale"), span("Modern")  # Labels for the slider positions
       )
     ),
     mainPanel(
