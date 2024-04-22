@@ -50,7 +50,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   color_palettes <- list(
-    ryb = c("#CC0000", "#FFFF00", "#0000FF"),
+    ryb = c("#CC0000", "#E8B600", "#0000FF"),
     cmyk = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
     grayscale = c("#000000", "#555555", "#AAAAAA", "#FFFFFF"),
     modern = c("#800080", "#00FF00", "#FFA500", "#FFC0CB")
@@ -81,7 +81,7 @@ server <- function(input, output, session) {
         xmax = c(10.5, 2.5, 10.5),
         ymin = c(3, -0.5, -0.5),
         ymax = c(10.5, 3, 1.25),
-        color = c("#CC0000", "blue", "yellow")
+        color = c("#CC0000", "blue", "#E8B600")
       )
       
       num_vertical <- input$numVerticalLines
@@ -116,6 +116,13 @@ server <- function(input, output, session) {
           color = "black",
           size = 4
         ) +
+        geom_vline(xintercept = x_values$x, linewidth = 4) +
+        geom_hline(yintercept = y_values$y, linewidth = 4) + 
+        coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+        geom_segment(data = half_lines_horizontal, aes(x = x_start, xend = x_end, y = y),
+                     linewidth = 4) +
+        geom_segment(data = half_lines_vertical, aes(x = x, y = y_start, xend = x, 
+                                                     yend = y_end), linewidth = 4) +
         scale_fill_manual(values = selected_palette) +
         coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
         my_theme()
