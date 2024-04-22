@@ -24,6 +24,7 @@ ui <- fluidPage(
                   min = 0, max = 10, value = 2),
       sliderInput("moveLines", "Move Lines (Left/Right or Up/Down):",
                   min = -5, max = 5, value = 0),
+      submitButton("Create", icon("refresh")),
       tags$head(
         tags$style(HTML('
           #colorScheme .irs-grid-text {font-size: 10px; padding-top: 25px;}
@@ -42,6 +43,10 @@ ui <- fluidPage(
     )
   )
 )
+
+
+
+
 server <- function(input, output, session) {
   
   color_palettes <- list(
@@ -117,6 +122,8 @@ server <- function(input, output, session) {
       
     } else if (input$artPeriod == "New York") {
       
+      selected_palette <- color_palettes[[input$colorScheme]]
+      
       set.seed(1)
       
       rectangles <- data.frame(
@@ -141,7 +148,7 @@ server <- function(input, output, session) {
       
       
       ggplot() +
-        geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = color)) +
+        geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
         geom_segment(data = vertical_lines, aes(x = x, y = -0.5, xend = x, yend = y), color = "black", size = 2) +
         geom_segment(data = horizontal_lines, aes(x = -0.5, y = y, xend = x, yend = y), color = "black", size = 4) +
         geom_segment(data= horizontal_lines, aes(x=1.1, y=0.25, xend=3.9, yend=0.25), color = "#1B6FAA", size = 3) +
@@ -150,9 +157,21 @@ server <- function(input, output, session) {
         geom_segment(data= horizontal_lines, aes(x=6, y=-0.25, xend=8, yend=-.25), color = "black", size = 3) +
         geom_segment(data=horizontal_lines, aes(x=9.8, y=0.3, xend=10, yend=0.3), color="#CC0000", size = 3) +
         coord_cartesian(xlim = c(0, 10), ylim = c(0, 9.7)) +
-        scale_fill_identity() +
+        geom_vline(
+          data = vertical_lines,
+          aes(xintercept = x),
+          color = "black",
+          size = 2
+        ) +
+        geom_hline(
+          data = horizontal_lines,
+          aes(yintercept = y),
+          color = "black",
+          size = 4
+        ) +
+        scale_fill_manual(values = selected_palette) +
         my_theme()
-    }
+    } 
   })
 }
 
