@@ -5,6 +5,7 @@ library(tidyverse)
 library(RColorBrewer)
 library(thematic)
 library(shinythemes)
+library(shinyvalidate)
 
 ui <- fluidPage(
   titlePanel("Mondrian Art"),
@@ -18,8 +19,8 @@ ui <- fluidPage(
       sliderInput("colorScheme", "Color Scheme:",
                   min = 1, max = 4, value = 1,
                   step = 1, ticks = FALSE),  
-      sliderInput("numVerticalLines", "Number of Vertical Lines:",
-                  min = 0, max = 10, value = 3),
+      numericInput("numVerticalLines", "Number of Vertical Lines:",
+                   min = 0, max = 10, value = 0),
       sliderInput("numHorizontalLines", "Number of Horizontal Lines:",
                   min = 0, max = 10, value = 2),
       sliderInput("moveLines", "Move Lines (Left/Right or Up/Down):",
@@ -49,6 +50,14 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   
+  
+  
+  iv <- InputValidator$new()
+  iv$add_rule("numVerticalLines", sv_between(0, 10))
+  iv$enable()
+  
+
+  
   color_palettes <- list(
     ryb = c("#CC0000", "#E8B600", "#0000FF"),
     cmyk = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
@@ -72,6 +81,8 @@ server <- function(input, output, session) {
   output$artDisplay <- renderPlot({
     if (input$artPeriod == "Paris") {
       
+      
+      
       selected_palette <- color_palettes[[input$colorScheme]]
       
       set.seed(1)
@@ -85,6 +96,10 @@ server <- function(input, output, session) {
       )
       
       num_vertical <- input$numVerticalLines
+      if (!iv$is_valid()) {
+        num_vertical = 0
+      }
+      
       vertical_lines <- data.frame(
         x = runif(num_vertical, min = 0, max = 10),
         y = rep(c(0, 10), length.out = num_vertical)
