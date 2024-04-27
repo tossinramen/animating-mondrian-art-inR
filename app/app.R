@@ -1,4 +1,3 @@
-
 library(shiny)
 library(ggplot2)
 library(tidyverse)
@@ -56,7 +55,7 @@ server <- function(input, output, session) {
   iv$add_rule("numVerticalLines", sv_between(0, 10))
   iv$enable()
   
-
+  
   
   color_palettes <- list(
     ryb = c("#CC0000", "#E8B600", "#0000FF"),
@@ -157,27 +156,46 @@ server <- function(input, output, session) {
       )
       
       
-      vertical_lines <- data.frame(
+      vertical_lines_NYbase <- data.frame(
         x = c(1, 2.5, 3.5, 4, 6, 7.5, 8, 9.7),
         y = rep(10, 8)
       )
       
       
-      horizontal_lines <- data.frame(
+      horizontal_lines_NYbase <- data.frame(
         x = c(10, 10, 10, 10),
         y = c(2, 4, 6, 7.5)
       )
       
       
+      num_vertical <- input$numVerticalLines
+      if (!iv$is_valid()) {
+        num_vertical = 0
+      }
+      
+      vertical_lines <- data.frame(
+        x = runif(num_vertical, min = 0, max = 10),
+        y = rep(c(0, 10), length.out = num_vertical)
+      )
+      
+      num_horizontal <- input$numHorizontalLines
+      horizontal_lines <- data.frame(
+        x = rep(c(0, 10), length.out = num_horizontal),
+        y = runif(num_horizontal, min = 0, max = 10)
+      )
+      
+      vertical_lines_NYfinal <- rbind(vertical_lines_NYbase, vertical_lines)
+      horizontal_lines_NYfinal <- rbind(horizontal_lines_NYbase, horizontal_lines)
+      
       ggplot() +
         geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
-        geom_segment(data = vertical_lines, aes(x = x, y = -0.5, xend = x, yend = y), color = "black", size = 2) +
-        geom_segment(data = horizontal_lines, aes(x = -0.5, y = y, xend = x, yend = y), color = "black", size = 4) +
-        geom_segment(data= horizontal_lines, aes(x=1.1, y=0.25, xend=3.9, yend=0.25), color = "#1B6FAA", size = 3) +
-        geom_segment(data= horizontal_lines, aes(x=2.6, y=0, xend=3.39, yend=0), color = "white", size = 3) +
-        geom_segment(data= horizontal_lines, aes(x=6, y=0.4, xend=8, yend=0.4), color = "black", size = 3) +
-        geom_segment(data= horizontal_lines, aes(x=6, y=-0.25, xend=8, yend=-.25), color = "black", size = 3) +
-        geom_segment(data=horizontal_lines, aes(x=9.8, y=0.3, xend=10, yend=0.3), color="#CC0000", size = 3) +
+        geom_segment(data = vertical_lines_NYfinal, aes(x = x, y = -0.5, xend = x, yend = y), color = "black", size = 2) +
+        geom_segment(data = horizontal_lines_NYfinal, aes(x = -0.5, y = y, xend = x, yend = y), color = "black", size = 4) +
+        geom_segment(data= horizontal_lines_NYfinal, aes(x=1.1, y=0.25, xend=3.9, yend=0.25), color = "#1B6FAA", size = 3) +
+        geom_segment(data= horizontal_lines_NYfinal, aes(x=2.6, y=0, xend=3.39, yend=0), color = "white", size = 3) +
+        geom_segment(data= horizontal_lines_NYfinal, aes(x=6, y=0.4, xend=8, yend=0.4), color = "black", size = 3) +
+        geom_segment(data= horizontal_lines_NYfinal, aes(x=6, y=-0.25, xend=8, yend=-.25), color = "black", size = 3) +
+        geom_segment(data= horizontal_lines_NYfinal, aes(x=9.8, y=0.3, xend=10, yend=0.3), color="#CC0000", size = 3) +
         coord_cartesian(xlim = c(0, 10), ylim = c(0, 9.7)) +
         geom_vline(
           data = vertical_lines,
