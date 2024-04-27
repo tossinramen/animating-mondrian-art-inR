@@ -51,7 +51,7 @@ half_lines_vertical = data.frame(
   y_end = 3          
 )
 
-  ggplot() +
+ggplot() +
   geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, 
                                    ymax = ymax, fill = as.factor(color))) +
   geom_vline(xintercept = x_values$x, linewidth = 4) +
