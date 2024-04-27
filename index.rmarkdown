@@ -202,3 +202,4 @@ anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
 anim
 
 ```
+
