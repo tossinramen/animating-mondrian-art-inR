@@ -40,14 +40,24 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 #| label: create-dataframes
 
 
-df = data.frame(x=c(3,8,8.2,10),y=c(0,0,0,0))
+df = data.frame(
+  x = c(3, 8, 8.2, 10),
+  y = c(0, 0, 0, 0))
 
-x_values = data.frame(x = c(1,2.8,8,9.2,10))
-y_values=data.frame(y = c(4, 5, 7))
+x_values = data.frame(x = c(1, 2.8, 8, 9.2, 10))
+y_values = data.frame(y = c(4, 5, 7))
 
-half_lines = data.frame(x_start = c(2.8, 2.8, 1, 2.8),x_end = c(8, 8, 9.2, 10), y = c(10, 7.8, 4.5, 0))
+half_lines = data.frame(
+  x_start = c(2.8, 2.8, 1, 2.8),
+  x_end = c(8, 8, 9.2, 10),
+  y = c(10, 7.8, 4.5, 0))
 
-rectangles = data.frame(xmin = c(-0.5, -0.5, -0.5, 5.5, 8, 10), xmax = c(1, 1, 1, 6, 10, 10.5), ymin = c(7.8, 4, 2.8, -0.5, -0.5, 5), ymax = c(11, 5, 3.5, 0, 0, 7), color = c("blue", "yellow", "red", "red", "yellow", "red"))
+rectangles = data.frame(
+  xmin = c(-0.5, -0.5, -0.5, 5.5, 8, 10),
+  xmax = c(1, 1, 1, 6, 10, 10.5),
+  ymin = c(7.8, 4, 2.8, -0.5, -0.5, 5),
+  ymax = c(11, 5, 3.5, 0, 0, 7),
+  color = c("blue", "yellow", "red", "red", "yellow", "red"))
 ```
 
 ```{r, fig.width = 5, fig.height = 5}
@@ -55,15 +65,15 @@ rectangles = data.frame(xmin = c(-0.5, -0.5, -0.5, 5.5, 8, 10), xmax = c(1, 1, 1
 
 df |>
   ggplot()+
-  geom_rect(data = rectangles, aes(xmin= xmin,
-                              xmax= xmax, 
-                              ymin= ymin,
-                              ymax=ymax,
+  geom_rect(data = rectangles, aes(xmin = xmin,
+                              xmax = xmax, 
+                              ymin = ymin,
+                              ymax =ymax,
             fill=as.factor(color))) +
-  geom_vline(xintercept = x_values$x, linewidth=3)+
-  geom_hline(yintercept = y_values$y, linewidth=3) + 
+  geom_vline(xintercept = x_values$x, linewidth = 3)+
+  geom_hline(yintercept = y_values$y, linewidth = 3) + 
   coord_cartesian(xlim = c(0,10), ylim = c(0,10))+
-  geom_segment(data=half_lines, aes(x = x_start, xend = x_end, y = y), linewidth = 3)+
+  geom_segment(data = half_lines, aes(x = x_start, xend = x_end, y = y), linewidth = 3)+
   annotate(geom = "segment", 
            y = 7.8, 
            x = -0.5, 
