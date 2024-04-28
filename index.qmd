@@ -24,11 +24,11 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 ```
 
 ```{r}
-#| label: test-1
+#| label: plot-1-and-2-animation
 #| fig-width: 5
 #| fig-height: 5
 
-# Data for the first plot (lines and rectangles)
+#first plot
 vertical_lines1 <- data.frame(
   state = "First",
   x = c(2.5, 9), 
@@ -59,7 +59,7 @@ rectangles1 <- data.frame(
   color = c("red", "blue", "yellow")
 )
 
-# Data for the second plot (lines and rectangles)
+#second plot
 vertical_lines2 <- data.frame(
   state = "Second",
   x = c(1, 2.8, 8, 9.2, 10),
@@ -90,13 +90,12 @@ rectangles2 <- data.frame(
   color = c("blue", "yellow", "red", "red", "yellow", "red")
 )
 
-# Combine the data frames with a consistent 'state' variable
+
 all_vertical_lines <- rbind(vertical_lines1, vertical_lines2)
 all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2)
 all_segments <- rbind(segments1, segments2)
 all_rectangles <- rbind(rectangles1, rectangles2)
 
-# Create the animated plot with transition effects
 p <- ggplot() +
   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
@@ -104,12 +103,11 @@ p <- ggplot() +
   geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600")) +
   transition_states(state, transition_length = 2, state_length = 2) +
-  enter_grow() +  # Adds a smoother effect when elements appear
-  enter_fade() +  # Makes the transition less abrupt
+  enter_grow() + 
+  enter_fade() + 
   coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
-  theme_minimal()
+  my_theme()
 
-# Render the animation
 anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
 anim
 ```
