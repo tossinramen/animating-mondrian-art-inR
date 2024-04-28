@@ -20,8 +20,8 @@ ui <- fluidPage(
                   step = 1, ticks = FALSE),  
       numericInput("numVerticalLines", "Number of Vertical Lines:",
                    min = 0, max = 10, value = 0),
-      sliderInput("numHorizontalLines", "Number of Horizontal Lines:",
-                  min = 0, max = 10, value = 2),
+      numericInput("numHorizontalLines", "Number of Horizontal Lines:",
+                  min = 0, max = 10, value = 0),
       sliderInput("moveLines", "Move Lines (Left/Right or Up/Down):",
                   min = -5, max = 5, value = 0),
       submitButton("Create", icon("refresh")),
@@ -55,6 +55,9 @@ server <- function(input, output, session) {
   iv$add_rule("numVerticalLines", sv_between(0, 10))
   iv$enable()
   
+  iv <- InputValidator$new()
+  iv$add_rule("numHorizontalLines", sv_between(0, 10))
+  iv$enable()
   
   
   color_palettes <- list(
@@ -99,12 +102,17 @@ server <- function(input, output, session) {
         num_vertical = 0
       }
       
+      num_horizontal <- input$numHorizontalLines
+      if (!iv$is_valid()) {
+        num_horizontal = 0
+      }
+      
       vertical_lines <- data.frame(
         x = runif(num_vertical, min = 0, max = 10),
         y = rep(c(0, 10), length.out = num_vertical)
       )
       
-      num_horizontal <- input$numHorizontalLines
+
       horizontal_lines <- data.frame(
         x = rep(c(0, 10), length.out = num_horizontal),
         y = runif(num_horizontal, min = 0, max = 10)
@@ -173,12 +181,17 @@ server <- function(input, output, session) {
         num_vertical = 0
       }
       
+      num_horizontal <- input$numHorizontalLines
+      if (!iv$is_valid()) {
+        num_horizontal = 0
+      }
+      
       vertical_lines <- data.frame(
         x = runif(num_vertical, min = 0, max = 10),
         y = rep(c(0, 10), length.out = num_vertical)
       )
       
-      num_horizontal <- input$numHorizontalLines
+
       horizontal_lines <- data.frame(
         x = rep(c(0, 10), length.out = num_horizontal),
         y = runif(num_horizontal, min = 0, max = 10)
