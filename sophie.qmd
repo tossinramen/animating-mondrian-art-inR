@@ -56,6 +56,6 @@ half_lines_vertical = data.frame(
   geom_segment(data = half_lines_vertical, aes(x = x, y = y_start, xend = x, 
                                                yend = y_end), linewidth = 4) +
   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", 
-                               "yellow" = "yellow")) +
+                               "yellow" = "#E8B600")) +
   my_theme()
 ```
