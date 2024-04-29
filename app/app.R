@@ -10,6 +10,13 @@ ui <- fluidPage(
   titlePanel("Mondrian Art"),
   
   theme = shinytheme("cyborg"),
+  tags$head(
+    tags$style(HTML('
+      body {
+        font-family: "Lato", sans-serif;
+      }
+    '))
+  ),
   
   sidebarLayout(
     sidebarPanel(
