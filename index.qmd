@@ -112,8 +112,6 @@ anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
 anim
 
 ```
-<<<<<<< HEAD
-=======
 
 ```{r}
 #| label: plot-2-and-3-animation
@@ -130,11 +128,11 @@ segments2 <- data.frame(
 
 rectangles3 <- data.frame(
   state = "Third",
-  xmin = c(-0.5, 2.5, 4, 6, 7.5),
-  xmax = c(1, 3.5, 6, 7.5, 9.7),
-  ymin = c(7.5, 0, 7.5, .5, 4),
-  ymax = c(13, 4, 7.5, 2, 10),
-  color = c("yellow", "white", "white", "red", "white")
+  xmin = c(-0.5, 6),
+  xmax = c(1, 7.5),
+  ymin = c(7.5, .5),
+  ymax = c(13, 2),
+  color = c("yellow", "red")
 )
 
 vertical_lines3 <- data.frame(
@@ -169,7 +167,7 @@ p <- ggplot() +
   geom_vline(aes(xintercept = x), data = two_3_vertical_lines, linewidth = 3) +
   geom_hline(aes(yintercept = y), data = two_3_horizontal_lines, linewidth = 3) +
   geom_rect(data = two_3_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
-  geom_segment(data = two_3_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3)+
+  geom_segment(data = two_3_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
   scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
   transition_states(state, transition_length = 2, state_length = 2) +
@@ -182,4 +180,3 @@ p <- ggplot() +
 anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
 anim
 ```
->>>>>>> 81e8669b58518c2173e33c4c2eaa10942dd094be
