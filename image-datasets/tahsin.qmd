@@ -1,0 +1,57 @@
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+library(gganimate)
+```
+
+```{r}
+
+my_theme <- function(base_size = 12, base_family = "Helvetica"){
+    theme_minimal() +
+    theme(axis.title.y = element_blank(),axis.title.x = element_blank(),
+    plot.title = element_text(face="bold", size=16),
+    axis.text = element_blank(),
+    plot.background = element_rect(fill = 'white',color=NA),
+    panel.grid = element_blank(),
+    legend.position = 'None', legend.title = element_blank())
+}
+```
+
+```{r ny, fig.width = 5,  fig.height = 5}
+#| warning: false
+
+
+rectangles <- data.frame(
+  xmin = c(-0.5, 6),
+  xmax = c(1, 7.5),
+  ymin = c(7.5, .5),
+  ymax = c(13, 2),
+  color = c("#E8B600", "#CC0000")
+)
+
+vertical_lines <- data.frame(
+  x = c(1, 2.5, 3.5, 4, 6, 7.5, 8, 9.7)
+)
+
+horizontal_lines <- data.frame(
+  y = c(2, 4, 6, 7.5)
+)
+
+additional_segments <- data.frame(
+  x_start = c(1.05, 2.6, 6, 6, 9.75),
+  x_end = c(3.95, 3.39, 8, 8, 10.05),
+  y = c(0.25, 0, 0.4, -0.25, 0.3),
+  color = c("#1B6FAA", "white", "black", "black", "#CC0000")
+)
+
+ggplot() +
+  geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = color)) +
+  scale_fill_identity() +
+  geom_vline(data = vertical_lines, aes(xintercept = x), color = "black", size = 2) +
+  geom_hline(data = horizontal_lines, aes(yintercept = y), color = "black", size = 4) +
+  geom_segment(data = additional_segments, aes(x = x_start, xend = x_end, y = y, yend = y, color = color), size = 3) +
+  scale_color_identity() +
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+  my_theme()
+```

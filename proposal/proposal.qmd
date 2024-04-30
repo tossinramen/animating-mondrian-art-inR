@@ -1,0 +1,75 @@
+---
+title: "Proposal"
+format: html
+editor: visual
+---
+
+**High level goal**: Our main goal with this project is to explore how Mondrian’s art can be illustrated and transformed with ggplot2 through the creation of an animation that moves through different Mondrian artworks.
+
+**A one to two paragraph description of your goals, including your motivation.**
+
+We hope to explore the relationships between Mondrian's works by transforming each piece into the next. Mondrian was a Dutch painter who believe in spiritual art that transcended reality. His work is very abstract, and made with many rectables and lines. We’ll do this by animating the process of expanding boxes and changing positions and colors. Our motivation for this project stems from our fascination with Mondrian's ability to convey aesthetic meanings through minimalistic compositions and our desire to learn how to animate with ggplot2, something none of us have yet explored.
+
+One of our major goals for this project is to offer a new perspective on interpreting art with data visualization using ggplot2. By animating the transformation of one piece into another, we hope to add another skill to our visualization toolbox in animation. We hope this process will help us uncover any patterns in Mondrian's work and help us better understand the thought process Mondrian had while creating his work. We will create an animation that moves through different Mondrian artworks.
+
+**A weekly “plan of attack” outlining your steps to complete your project and including the team member(s) assigned to that task.**
+
+-   [Week 1]{.underline} (March 20 - March 27): Work on proposal
+
+    -   Lara: Work on writing the high-level goals
+
+    -   Ishrit: description of goals, edit and check for final goals for proposal
+
+    -   Sophie: weekly plan of attack
+
+    -   Tahsin: organization of project repo, help Ishrit with description of goals
+
+-   [Week 2]{.underline} (March 27 - April 3): Edit proposal / make adjustments
+
+    -   We will discuss feedback as a group, and whoever is most comfortable with that section will make edits. Here are some suggested ones:
+    -   Lara: Resolve issues for peer review #1
+    -   Sophie: Resolve issues for peer review #2
+    -   Tahsin: Resolve Eli's issues
+    -   Ishrit: Help resolve Eli's issues, peer review issues
+
+-   [Week 3]{.underline} (April 3 - 10): Start creating our own dataset / experiment with gganimate
+
+    -   Each person will start with an image and try to create datasets:
+
+        -   Sophie: image 1 + research gganimate
+
+            ![image 1](images/Mondrian%201.jpg){width="320"}
+
+        -   Lara: image 2
+
+        ![image 2](images/Mondrian%202.jpg){width="320"}
+
+        -   Tahsin: image 3
+
+        ![image 3](images/Mondrian%203.jpg){width="320"}
+
+        -   Ishrit: image 4
+
+-   
+
+    ![image 4](images/Mondrian%204.jpg){width="320"}
+
+-   [Week 4]{.underline} (April 10 - 17): Grind out the project
+
+    -   Team members will focus on their respective images
+
+    -   Also, each team member will be responsible for creating the 'animation' data for the transitions between one image and another.
+
+        -   These transitions will work by starting by looking at the major differences between our base images. Then, depending on what is majorly different, we hope to expand lines, place them in different areas, move boxes, change colors, etc. We hope to make these transitions smooth, so we would need a lot of "transition" datasets, making minor changes within each one.
+
+-   [Week 5]{.underline} (April 17 - 24): Focus on debugging (slow down a bit for tests)
+
+-   [Week 6]{.underline} (April 24 - May 1st): FINISH PROJECT AND PRESENTATION
+
+*Note: For the future weeks, tasks will be split up more accurately later.*
+
+**The final organization of your project repository. This means describing the project organization in your proposal as well as implementing that organization in your repo. Create any folders needed and place a `README.md` in each folder explaining what goes in there.**
+
+Note on project repository: We won't require folders since we'll be doing a single animation between the 3 - 4 selected images. Our first idea for this project is to do this using a series of ggplots with lines, segments, and rectangles. We'll than animate it by making many frames in between. Should we choose to switch over to gganimate instead, we will swap to a separate folder for each intermediary that's required, and make the relevant folders.
+
+Also, we are placing the original photos in the images folder. These are just for our reference and for people who view our repository.
