@@ -5,8 +5,8 @@ format:
     nav-buttons: [github]
     github: https://github.com/vizdata-s24/project-2-plot_twisters
 logo: images/clipboard-1900000438.png
-fig-width: 10
-fig-asp: 0.3
+#fig-width: 10
+#fig-asp: 0.3
 params:
   today: "2024-5-01"
 editor: 
@@ -46,14 +46,16 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 # Home
 
-### Row {height="100%"}
+### Row {height="50%"}
 
-### Column {width="25%"}
+### Column {width="50%"}
 
 ```{r}
 #| title: Composition with Red, Blue, and Yellow
+#| label: plot-image-1
 #| fig-width: 5
 #| fig-height: 5
+#| alt-text: "This abstract composition inspired by Mondrian's Composition with Red, Blue, and Yellow features a grid of thick black lines creating rectangular sections. A large red rectangle is at the top left, a medium-sized blue rectangle in the lower left, and a smaller yellow rectangle at the bottom right. The black lines form a vertical divider and a horizontal divider, with additional shorter horizontal and vertical lines adding complexity to the grid. The colors used are bold red, blue, and yellow, creating a visually striking arrangement."
 
 rectangles = data.frame(
   xmin = c(2.5, -0.5, 9), 
@@ -94,13 +96,12 @@ half_lines_vertical = data.frame(
   my_theme()
 ```
 
-### Column {width="25%"}
-
 ```{r}
 #| title: Composition No.10
+#| label: plot-image-2
 #| fig-width: 5
 #| fig-height: 5
-
+#| alt-text: "This abstract composition, titled Composition No.10, features a grid with multiple rectangular sections created by bold vertical and horizontal lines. The grid is filled with three primary colors: blue, red, and yellow, creating a vibrant visual pattern.The layout includes three colored rectangles. A large blue rectangle is at the upper left, a red rectangle at the lower left, and a yellow rectangle at the upper center. Additional vertical and horizontal lines, along with smaller segments, create intricate divisions within the grid, enhancing its geometric structure. Overall, the combination of black lines and primary-colored rectangles creates a striking composition with a dynamic and modern aesthetic."
 
 df = data.frame(
   x = c(3, 8, 8.2, 10),
@@ -143,12 +144,12 @@ df |>
 
 ```
 
-### Column {width="25%"}
-
 ```{r}
 #| title: Composition with Yellow, Blue, and Red
+#| label: plot-image-3
 #| fig-width: 5
 #| fig-height: 5
+#| alt-text: "This abstract composition, titled Composition with Yellow, Blue, and Red, features a grid-like structure with bold black lines and colored rectangles. The piece centers around two large colored blocks: a yellow rectangle in the top left and a red rectangle in the lower center.The black lines create a series of vertical and horizontal divisions, adding geometric complexity. Additional segments and colored lines, including a blue segment, add visual contrast within the grid. The combination of vivid colors and strong black lines gives this composition a striking and modern appearance."
 
 rectangles <- data.frame(
   xmin = c(-0.5, 6),
@@ -184,11 +185,22 @@ ggplot() +
   my_theme()
 ```
 
+### Row {height="50%"}
+
+### Column {width="100%"}
+
+**Original Work**\
+
+![](images/Mondrian%201.jpg){width="2.5in" style="margin-left: 90px"}
+![](images/Mondrian%202.jpg){width="2.5in" style="margin-left: 240px"}
+![](images/Mondrian%203.jpg){width="2.5in" style="margin-left: 225px"}
+
 # Animation
 
 ## Row {height="20%"}
 
 ```{r}
+
 #| label: plot-1
 
 vertical_lines1 <- data.frame(
@@ -228,7 +240,6 @@ rectangles1 <- data.frame(
   ymax = c(10.5, 3, 1.25),
   color = c("red", "blue", "yellow")
 )
-
 ```
 
 ```{r}
@@ -302,37 +313,39 @@ segments3 <- data.frame(
 ```
 
 ```{r}
-#| label: everything-animation
-#| fig-width: 5
-#| fig-height: 5
 
-# Combine all data frames for vertical lines, horizontal lines, segments, and rectangles
-all_vertical_lines <- rbind(vertical_lines1, vertical_lines2, vertical_lines3)
-all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2, horizontal_lines3)
-all_segments <- rbind(segments1, segments2, segments3)
-all_rectangles <- rbind(rectangles1, rectangles2, rectangles3)
-
-# Create a unified ggplot object with transition_states
-combined_plot <- ggplot() +
-   geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
-  geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
-  geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
-  geom_segment(data = all_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
-  geom_segment(data = half_lines_vertical, 
-               aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
-  scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
-  scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
-  transition_states(state, transition_length = 2, state_length = 2) +
-  enter_grow() + 
-  enter_fade() + 
-  coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
-  my_theme()
-
-# Create the animation
-combined_anim <- animate(combined_plot, duration = 20, fps = 20, end_pause = 5)
-
-# Render the animation
-combined_anim
+# #| label: everything-animation
+# #| fig-width: 10
+# #| fig-height: 10
+# #| alt-text: "This animation transitions through three abstract compositions: Composition with Red, Blue, and Yellow, Composition No.10 and Composition with Yellow, Blue, and Red. The animation starts with a composition featuring red, blue, and yellow rectangles, interspersed with black grid lines. It then transitions to the second composition, which introduces a different arrangement of colored blocks and lines. The final composition highlights a yellow rectangle along with other segments and lines. Throughout the animation, the elements grow, shift, and change positions, creating a smooth transformation between the three compositions. The transitions use fading, growing, and other effects to move from one design to the next, emphasizing the evolving nature of the abstract grid structures."
+# 
+# # Combine all data frames for vertical lines, horizontal lines, segments, and rectangles
+# all_vertical_lines <- rbind(vertical_lines1, vertical_lines2, vertical_lines3)
+# all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2, horizontal_lines3)
+# all_segments <- rbind(segments1, segments2, segments3)
+# all_rectangles <- rbind(rectangles1, rectangles2, rectangles3)
+# 
+# # Create a unified ggplot object with transition_states
+# combined_plot <- ggplot() +
+#    geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
+#   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
+#   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
+#   geom_segment(data = all_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
+#   geom_segment(data = half_lines_vertical, 
+#                aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
+#   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
+#   scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
+#   transition_states(state, transition_length = 2, state_length = 2) +
+#   enter_grow() + 
+#   enter_fade() + 
+#   coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+#   my_theme()
+# 
+# # Create the animation
+# combined_anim <- animate(combined_plot, duration = 20, fps = 20, end_pause = 5)
+# 
+# # Render the animation
+# combined_anim
 
 ```
 
