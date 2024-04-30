@@ -263,30 +263,6 @@ rectangles2 <- data.frame(
   ymax = c(11, 5, 3.5, 0, 0, 7),
   color = c("blue", "yellow", "red", "red", "yellow", "red")
 )
-
-all_vertical_lines <- rbind(vertical_lines1, vertical_lines2)
-all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2)
-all_segments <- rbind(segments1, segments2)
-all_rectangles <- rbind(rectangles1, rectangles2)
-
-
-# p <- ggplot() +
-#    geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
-#   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
-#   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
-#   geom_segment(aes(x = x_start, xend = x_end, y = y), data = all_segments, linewidth = 3) +
-#   geom_segment(data = half_lines_vertical, 
-#                aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
-#   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600")) +
-#   transition_states(state, transition_length = 2, state_length = 2) +
-#   enter_grow() + 
-#   enter_fade() + 
-#   coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
-#   my_theme()
-# 
-# anim <- animate(p, duration = 15, fps = 20, end_pause = 5)
-# anim
-
 ```
 
 ```{r}
@@ -571,33 +547,37 @@ Yellow, Blue and Red”, Britannica).
 
 # About the Team
 
-This project was developed by **Plot Twisters** for STA/ISS 313: Advanced Data Visualization at Duke University. The team is comprised of the following team members.
+This project was developed by **Plot Twisters** for STA/ISS 313:
+Advanced Data Visualization at Duke University. The team is comprised of
+the following team members.
 
 ## Team Members
 
-- **Sophie Mansoor**  
-  *Class of 2026*  
-  CS major, Statistical Science minor  
-  *Can't ride a bike*
+-   **Sophie Mansoor**\
+    *Class of 2026*\
+    CS major, Statistical Science minor\
+    *Can't ride a bike*
 
-- **Lara Franca Garcia**  
-  *Class of 2026*  
-  CS and Math double major  
-  *Can't swim*
+-   **Lara Franca Garcia**\
+    *Class of 2026*\
+    CS and Math double major\
+    *Can't swim*
 
-- **Ishrit Gupta**  
-  *Class of 2026*  
-  Statistics and Public Policy double major  
-  *Can't sleep at night*
+-   **Ishrit Gupta**\
+    *Class of 2026*\
+    Statistics and Public Policy double major\
+    *Can't sleep at night*
 
-- **Tahsin Rahman**  
-  *Class of 2025*  
-  CS+Statistics major  
-  *Can't swim or ride a bike*
+-   **Tahsin Rahman**\
+    *Class of 2025*\
+    CS+Statistics major\
+    *Can't swim or ride a bike*
 
 ## Project Motivation
 
-The **motivation** for this project is that we are all HUGE art fans and wanted to combine our skills in data visualization and our interest in Mondrian's artwork.
+The **motivation** for this project is that we are all HUGE art fans and
+wanted to combine our skills in data visualization and our interest in
+Mondrian's artwork.
 
 # Citations
 
