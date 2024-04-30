@@ -21,13 +21,13 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       selectInput("artPeriod", "Select Art Period:",
-                  choices = c("Paris", "New York")),
+                  choices = c("Paris", "London", "New York")),
       selectInput("colorScheme", "Color Scheme:",
                   choices = c("Original", "CMYK", "Grayscale", "Modern")),  
       numericInput("numVerticalLines", "Number of Vertical Lines:",
                    min = 0, max = 10, value = 0),
       numericInput("numHorizontalLines", "Number of Horizontal Lines:",
-                  min = 0, max = 10, value = 0),
+                   min = 0, max = 10, value = 0),
       submitButton("Create", icon("refresh")),
       tags$head(
         tags$style(HTML('
@@ -57,7 +57,7 @@ server <- function(input, output, session) {
   iv$enable()
   
   
-
+  
   
   my_theme <- function() {
     theme_minimal() +
@@ -86,7 +86,7 @@ server <- function(input, output, session) {
       
       selected_palette <- color_palettes_paris[[input$colorScheme]]
       
-    
+      
       rectangles <- data.frame(
         xmin = c(2.5, -0.5, 9),
         xmax = c(10.5, 2.5, 10.5),
@@ -97,11 +97,11 @@ server <- function(input, output, session) {
       
       num_vertical <- input$numVerticalLines
       num_horizontal <- input$numHorizontalLines
-
+      
       if (!iv$is_valid()) {
         num_vertical = 0
         num_horizontal = 0
-
+        
       }
       
       
@@ -110,12 +110,12 @@ server <- function(input, output, session) {
         y = rep(c(0, 10), length.out = num_vertical)
       )
       
-
+      
       horizontal_lines <- data.frame(
         x = rep(c(0, 10), length.out = num_horizontal),
         y = runif(num_horizontal, min = 0, max = 10)
       )
-
+      
       x_values = data.frame(x = c(2.5))
       y_values = data.frame(y = c(3))
       
@@ -215,7 +215,7 @@ server <- function(input, output, session) {
         y = rep(c(0, 10), length.out = num_vertical)
       )
       
-
+      
       horizontal_lines <- data.frame(
         x = rep(c(0, 10), length.out = num_horizontal),
         y = runif(num_horizontal, min = 0, max = 10)
@@ -247,7 +247,96 @@ server <- function(input, output, session) {
         scale_fill_manual(values = selected_palette) +
         coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
         my_theme()
-    } 
+      
+    } else if (input$artPeriod == "London") {
+      
+      cp_london <- list(
+        Original = c("#255293", "#db0a16", "yellow"),
+        CMYK = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
+        Grayscale = c("#000000", "#555555", "#AAAAAA", "#FFFFFF"),
+        Modern = c("#800080", "#00FF00", "#FFA500", "#FFC0CB")
+      )
+      
+      selected_palette <- cp_london[[input$colorScheme]]
+      
+      df_london = data.frame(
+        x = c(3, 8, 8.2, 10),
+        y = c(0, 0, 0, 0))
+      
+      x_values_london = data.frame(x = c(1, 2.8, 8, 9.2, 10),
+                                   y = rep(10, 5))
+      y_values_london = data.frame(y = c(4, 5, 7),
+                                   x = c(10, 10, 10))
+      
+      half_lines_london = data.frame(
+        x_start = c(2.8, 2.8, 1, 2.8),
+        x_end = c(8, 8, 9.2, 10),
+        y = c(10, 7.8, 4.5, 0))
+      
+      rectangles_london = data.frame(
+        xmin = c(-0.5, -0.5, -0.5, 5.5, 8, 10),
+        xmax = c(1, 1, 1, 6, 10, 10.5),
+        ymin = c(7.8, 4, 2.8, -0.5, -0.5, 5),
+        ymax = c(11, 5, 3.5, 0, 0, 7),
+        color = c("blue", "yellow", "red", "red", "yellow", "red"))
+      
+      
+      num_vertical <- input$numVerticalLines
+      if (!iv$is_valid()) {
+        num_vertical = 0
+      }
+      
+      num_horizontal <- input$numHorizontalLines
+      if (!iv$is_valid()) {
+        num_horizontal = 0
+      }
+      
+      vertical_lines <- data.frame(
+        x = runif(num_vertical, min = 0, max = 10),
+        y = rep(c(0, 10), length.out = num_vertical)
+      )
+      
+      
+      horizontal_lines <- data.frame(
+        x = rep(c(0, 10), length.out = num_horizontal),
+        y = runif(num_horizontal, min = 0, max = 10)
+      )
+      
+      vertical_lines_london_final <- rbind(x_values_london, vertical_lines)
+      horizontal_lines_london_final <- rbind(y_values_london, horizontal_lines)
+      
+      df_london |>
+        ggplot()+
+        geom_rect(data = rectangles_london, aes(xmin = xmin,
+                                         xmax = xmax, 
+                                         ymin = ymin,
+                                         ymax =ymax,
+                                         fill=as.factor(color))) +
+        geom_vline(xintercept = x_values_london$x, linewidth = 3)+
+        geom_hline(yintercept = y_values_london$y, linewidth = 3) + 
+        coord_cartesian(xlim = c(0,10), ylim = c(0,10))+
+        geom_segment(data = half_lines_london, aes(x = x_start, xend = x_end, y = y), linewidth = 3)+
+        annotate(geom = "segment", 
+                 y = 7.8, 
+                 x = -0.5, 
+                 xend = 1,
+                 linewidth = 5) +
+        geom_vline(
+          data = vertical_lines_london_final,
+          aes(xintercept = x),
+          color = "black",
+          size = 2
+        ) +
+        geom_hline(
+          data = horizontal_lines_london_final,
+          aes(yintercept = y),
+          color = "black",
+          size = 4
+        ) +
+        scale_fill_manual(values = selected_palette) +
+        my_theme() 
+      
+    }
   })
 }
 
