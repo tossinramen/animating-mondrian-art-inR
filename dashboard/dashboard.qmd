@@ -9,7 +9,9 @@ fig-width: 10
 fig-asp: 0.3
 params:
   today: "2024-5-01"
-
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r}
@@ -22,7 +24,6 @@ library(tidyverse)
 
 theme_set(theme_minimal(base_size = 24, base_family = "Atkinson Hyperlegible"))
 ```
-
 
 ```{r}
 #| label: set-inputs
@@ -41,22 +42,25 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 
 ```
-# {.sidebar}
-  - Mondrian's Art
-      **Our project is linked here:**
-      [GitHub Repository](https://github.com/vizdata-s24/project-2-plot_twisters)
 
-      **Project By:**
-      - **Tahsin Rahman**
-      - **Sophie Mansoor**
-      - **Ishrit Gupta**
-      - **Lara Garcia**
+#  {.sidebar}
+
+-   Mondrian's Art **Our project is linked here:** [GitHub
+    Repository](https://github.com/vizdata-s24/project-2-plot_twisters)
+
+    **Project By:**
+
+    -   **Tahsin Rahman**
+    -   **Sophie Mansoor**
+    -   **Ishrit Gupta**
+    -   **Lara Garcia**
 
 <br>
 
 # Home
 
 ### Row {height="100%"}
+
 ### Column {width="25%"}
 
 ```{r}
@@ -149,7 +153,6 @@ df |>
 
 ```
 
-
 ### Column {width="25%"}
 
 ```{r}
@@ -189,9 +192,10 @@ ggplot() +
   my_theme()
 ```
 
-
 # Animation
+
 ## Row {height="20%"}
+
 ```{r}
 #| label: plot-1
 
@@ -365,100 +369,233 @@ combined_anim
 
 ```
 
-
-
 # Customization
 
 ## Row {height="40%"}
+
 ### Column {width="40%"}
 
-
-
-
 # Write-up
-**Introduction** \
 
-Our project, "Animating Mondrian," is an exploratory venture into the transformation of Piet Mondrian's art using `ggplot2` and `gganimate` within the R programming environment. Piet Mondrian, a pioneer in the development of modern abstract art and a major proponent of the Dutch abstract art movement De Stijl, used non-representational forms—primarily rectangles, squares, and lines—and a restricted palette of primary colors and non-colors. His works, which offer a rich field for digital reinterpretation, underscore our project's goal to animate transitions between his artworks. This not only visualizes the evolution of his art but provides a new perspective on understanding and interacting with abstract compositions.
+**Introduction**\
+
+Our project, "Animating Mondrian," is an exploratory venture into the
+transformation of Piet Mondrian's art using `ggplot2` and `gganimate`
+within the R programming environment. Piet Mondrian, a pioneer in the
+development of modern abstract art and a major proponent of the Dutch
+abstract art movement De Stijl, used non-representational
+forms—primarily rectangles, squares, and lines—and a restricted palette
+of primary colors and non-colors. His works, which offer a rich field
+for digital reinterpretation, underscore our project's goal to animate
+transitions between his artworks. This not only visualizes the evolution
+of his art but provides a new perspective on understanding and
+interacting with abstract compositions.
 
 **Historical Context and Motivation**\
 
-Piet Mondrian's art was profoundly influenced by his desire to express the spiritual through the abstract. Initially inspired by the landscape of Brabant, where he noted the interplay of lines and colors in nature, his work progressively embraced abstraction. The influence of Post-Impressionists and his exposure to the dynamism of American jazz and city life in New York further fueled his abstract expressions. Our motivation stems from a fascination with Mondrian’s ability to convey deep aesthetic and philosophical meaning through minimalistic visual elements. We aim to demystify the static nature of his paintings, using animations to hypothesize the dynamic processes potentially envisioned in Mondrian's creative mind.
+Piet Mondrian's art was profoundly influenced by his desire to express
+the spiritual through the abstract. Initially inspired by the landscape
+of Brabant, where he noted the interplay of lines and colors in nature,
+his work progressively embraced abstraction. The influence of
+Post-Impressionists and his exposure to the dynamism of American jazz
+and city life in New York further fueled his abstract expressions. Our
+motivation stems from a fascination with Mondrian’s ability to convey
+deep aesthetic and philosophical meaning through minimalistic visual
+elements. We aim to demystify the static nature of his paintings, using
+animations to hypothesize the dynamic processes potentially envisioned
+in Mondrian's creative mind.
 
-**Technical Implementation** \
+**Technical Implementation**\
 
-To delve into Mondrian’s abstract world, we recreated three significant artworks: "Composition with Red, Blue, and Yellow", "Composition N.10", and "Composition with Yellow, Blue, and Red". These digital reproductions served as the groundwork for our animations, which were crafted using `gganimate` to simulate transitions that bring the evolution of Mondrian's art to life. This involved dynamically altering line segments and color fields to morph one painting into another, highlighting the fluidity and transformative potential within the bounds of geometric abstraction.
+To delve into Mondrian’s abstract world, we recreated three significant
+artworks: "Composition with Red, Blue, and Yellow", "Composition N.10",
+and "Composition with Yellow, Blue, and Red". These digital
+reproductions served as the groundwork for our animations, which were
+crafted using `gganimate` to simulate transitions that bring the
+evolution of Mondrian's art to life. This involved dynamically altering
+line segments and color fields to morph one painting into another,
+highlighting the fluidity and transformative potential within the bounds
+of geometric abstraction.
 
-These animations not only serve to illustrate Mondrian's artistic evolution but also emphasize the simplicity and power of minimalist art in conveying complex ideas. Through this technical endeavor, we observed how subtle modifications in geometric forms and their interactions could dramatically alter visual perception and convey movement and growth.
+These animations not only serve to illustrate Mondrian's artistic
+evolution but also emphasize the simplicity and power of minimalist art
+in conveying complex ideas. Through this technical endeavor, we observed
+how subtle modifications in geometric forms and their interactions could
+dramatically alter visual perception and convey movement and growth.
 
 **Interactive Application**\
 
-To extend the project’s educational and exploratory dimensions, we developed an interactive application that allows users to manipulate the elements of Mondrian's compositions. This tool empowers users to alter the number of lines, adjust their orientations, modify the color schemes, and shift positions, thus offering a hands-on experience of Mondrian's methods and artistic decisions. This interactive component is designed to deepen the user's understanding of neoplasticism by enabling them to explore and experiment with its defining features actively.
+To extend the project’s educational and exploratory dimensions, we
+developed an interactive application that allows users to manipulate the
+elements of Mondrian's compositions. This tool empowers users to alter
+the number of lines, adjust their orientations, modify the color
+schemes, and shift positions, thus offering a hands-on experience of
+Mondrian's methods and artistic decisions. This interactive component is
+designed to deepen the user's understanding of neoplasticism by enabling
+them to explore and experiment with its defining features actively.
 
 **Conclusion**\
 
-"Animating Mondrian" combines historical art analysis with modern technological tools, showcasing how digital media can offer fresh insights into well-established art forms. This project not only enhanced our skills in animation and data visualization but also deepened our appreciation of the complexities inherent in abstract art. By converting static images into dynamic sequences, we invite viewers to engage with Mondrian’s work in a novel and interactive manner, thus broadening the accessibility and understanding of his art through the lens of data visualization.
+"Animating Mondrian" combines historical art analysis with modern
+technological tools, showcasing how digital media can offer fresh
+insights into well-established art forms. This project not only enhanced
+our skills in animation and data visualization but also deepened our
+appreciation of the complexities inherent in abstract art. By converting
+static images into dynamic sequences, we invite viewers to engage with
+Mondrian’s work in a novel and interactive manner, thus broadening the
+accessibility and understanding of his art through the lens of data
+visualization.
 
-The project repository, detailed with codes, datasets, and outputs, is structured to facilitate easy exploration of our methods and findings, offering a resource for those interested in the intersection of art and technology. This endeavor represents not just a technical achievement but also a new paradigm for interdisciplinary education, promoting a deeper appreciation of art in the digital age.
+The project repository, detailed with codes, datasets, and outputs, is
+structured to facilitate easy exploration of our methods and findings,
+offering a resource for those interested in the intersection of art and
+technology. This endeavor represents not just a technical achievement
+but also a new paradigm for interdisciplinary education, promoting a
+deeper appreciation of art in the digital age.
 
-In conclusion, "Animating Mondrian" is more than a mere academic exercise; it is a bridge connecting the past with the present, inviting art lovers and technologists alike to explore the beauty and complexity of Mondrian’s legacy through modern visualization techniques. Through this project, we have laid a foundation for future explorations into the digital representation of abstract art, hoping to inspire others to explore this enriching field.
-
-
-
-
-
-
-
-
-
-
+In conclusion, "Animating Mondrian" is more than a mere academic
+exercise; it is a bridge connecting the past with the present, inviting
+art lovers and technologists alike to explore the beauty and complexity
+of Mondrian’s legacy through modern visualization techniques. Through
+this project, we have laid a foundation for future explorations into the
+digital representation of abstract art, hoping to inspire others to
+explore this enriching field.
 
 # About the Art
-![Piet Mondrian](images/Piet_Mondriaan.jpg)
-**The artist**
-Piet Mondrian (born March 7, 1872, Amersfoort, Netherlands—died February 1, 1944, New York, New York, U.S.) was a painter who was an important leader in the development of modern abstract art and a major exponent of the Dutch abstract art movement known as De Stijl (“The Style”). 
 
+**The Artist**
 
-In 1903 he visited a friend in Brabant (Belgium), where the calm beauty and clean lines of the landscape proved to be an important influence on him. When he stayed on in Brabant the following year, he experienced a period of personal and artistic discovery; by the time he returned to Amsterdam in 1905, his art had visibly changed. The landscapes he began to paint of the surroundings of Amsterdam, mainly of the Gein River, show a pronounced rhythmic framework and lean more toward compositional structure than toward the traditional picturesque values of light and shade. This vision of harmony and rhythm, achieved through line and color, would develop toward abstraction in later years, but during this period his painting still remained more or less within the traditional boundaries of contemporary Dutch art.
+![](images/Piet_Mondriaan.jpg){width="2in"}
 
-In 1907 Amsterdam sponsored the Quadrennial Exhibition, featuring such painters as Kees van Dongen, Otto van Rees, and Jan Sluijters, who were Post-Impressionists using pure colors in bold, nonliteral ways. Their work was strongly influenced by the forceful expression and use of color in the art of Post-Impressionist Vincent van Gogh, whose work had been featured in a large exhibition in Amsterdam in 1905.
+Piet Mondrian (born March 7, 1872, Amersfoort, Netherlands—died February
+1, 1944, New York, New York, U.S.) was a painter who was an important
+leader in the development of modern abstract art, also largely
+responsible for the art movement known as "De Stijl."
 
-In a painting such as The Red Tree, also dated from 1908, he expressed his own vision of nature by creating a balance between the contrasting hues of red and blue and between the violent movement of the tree and the blue sky, thus producing a sense of equilibrium, which would remain his prevailing aim in representing nature.
+Initially influenced by the serene landscapes of Brabant (Belgium) while
+visiting a friend, Mondrian's early works displayed a rhythmic framework
+and compositional structure. Upon returning to Holland, his vision
+shifted towards abstraction, marked by a pursuit of harmony and rhythm
+through line and color. He had a new rhythmic framework, leaning more
+toward compositional structure than toward the traditional picturesque
+values of light and shade. In "The Red Tree" (1908), for example,
+Mondrian captured his unique interpretation of nature by balancing
+contrasting colors of red and blue. This harmony is also reflected in
+the dynamic motion of the tree against the calmness of the blue sky.
+Through this contrast, Mondrian achieved a sense of equilibrium, a theme
+that would continue to guide his depiction of the natural world. Even
+so, for a while, Mondrian's work still remained more or less within the
+traditional boundaries of contemporary Dutch art.
 
-The scope of this new style of line and colour, for which Mondrian coined the name neoplasticism, was to free the work of art from representing a momentary visual perception and from being guided by the personal temperament of the artist. The vision that Mondrian had moved toward for so long now seemed to be within reach: he could now render “a true vision of reality” in his painting, which meant deriving a composition not from a fragment of reality but rather from an overall abstract view of the harmony of the universe. A painting no longer had to begin from an abstracted view of nature; rather, a painting could emerge out of purely abstract rules of geometry and colour, since he found that this was the most effective language through which to convey his spiritual message.
+After some time, he shifted towards neoplasticism, liberating his art
+from representing fleeting visual perceptions and his personal
+temperament; he now expressed "a true vision of reality", which he
+sought to convey harmony through completely abstract rules of geometry
+and color. This shift is reflected in his titles, which transitioned
+from descriptive references to nature or architecture to more abstract
+compositions ("The Red Tree" vs. "Diagonal Composition").
 
-The titles of his works reflect this move to pure abstraction: whereas his earlier work had titles invoking the abstracted elements of nature or architecture depicted, his work during this period generally had titles such as Composition with Gray, Red, Yellow, and Black (c. 1920–26) and Diagonal Composition (1921).
+Upon his move to New York City in 1940, Mondrian's art was invigorated
+by the city's vibrant energy and the rhythms of American music. He
+departed from his earlier austere patterns of black lines, embracing
+colored bands and small rectangles that coalesced into dynamic
+compositions of vertical and horizontal lines.
 
-Inspired by his regained freedom, New York City’s pulsating life, and the new rhythms of American music, after 1940 he broke away first from the austere patterns of black lines, replacing them with coloured bands. Then, in place of the continuous flow of these bands, he substituted a series of small rectangles that coalesced into a rhythmic flow of colorful vertical and horizontal lines.
+Mondrian's artistic journey encapsulates a progression from
+representational elements towards pure abstraction, driven by a desire
+to convey a deeper spiritual message. His innovative use of line, color,
+and form continues to inspire artists and audiences alike, cementing his
+legacy as a groundbreaking figure in the history of art ("Piet
+Mondrian", Britannica).
 
-**Composition with Red, Blue and Yellow (Image 1)** \
-![Image 1](images/Mondrian 1.jpg)
-This particular painting came in 1930 and marked the end of this period in his work. The bold colours, clear defining lines of separation and simple forms became the signature style of Mondrian, over shadowing his work with landscapes, portraits and later abstract and cubist work. 
+**"Composition with Red, Blue and Yellow" (1930)**
 
-**Composition N. 10 (image 2)**
-![Image 2](images/Mondrian 2.jpg)
-The artwork has loose dating around the years 1939-1942, which places it in the neoplasticist period of Mondrian’s career. 
+![](images/Mondrian 1.jpg){fig-alt="An abstract painting by Piet Mondrian with black lines forming a grid of rectangles and squares. The shapes are filled with primary colors: red, blue, and yellow, along with white spaces. The composition is balanced yet asymmetrical."
+width="5in"}
 
-This artwork marked a shift in Mondrian’s motifs towards more extensive rectangular formats, and the application of thicker black lines resulted in greater viewer participation when observing its optical effects.
+"Composition with Red, Blue and Yellow" by Piet Mondrian, created in
+1930, represents a culmination of the artist's exploration of
+neoplasticism. The clean lines and simple geometric forms reflect
+Mondrian's move away from earlier styles that included landscapes and
+portraits, as well as his more abstract and cubist works. This painting
+encapsulates the essence of Mondrian's signature style: the use of
+primary colors, stark lines, as well as an emphasis on balance and order
+(Gurney).
 
-Overall, Piet Mondrian’s Composition No. 10 represents one of his most emblematic artworks from his neoplasticist period due to its revolutionary use of color planes separated by black lines resulting in a successful union between mathematics, abstractionism, aesthetics while actively engaging viewers’ perception through viewing experience.
+**"Composition N. 10" (1940?)**
 
-In some examples of this new direction, such as Composition (1938) / Place de la Concorde (1943), he appears to have taken unfinished black-line paintings from Paris and completed them in New York by adding short perpendicular lines of different colors, running between the longer black lines, or from a black line to the edge of the canvas. The newly colored areas are thick, almost bridging the gap between lines and forms, and it is startling to see color in a Mondrian painting that is unbounded by black. 
+![](images/Mondrian 2.jpg){width="5in"}
 
+"Composition No. 10" by Piet Mondrian, loosely dated from 1939 to 1942,
+marks a significant evolution in the artist's neoplasticist period. The
+painting reflects his characteristic geometric shapes and bold primary
+colors, with black lines used to separate color planes. This approach
+creates a balanced harmony between mathematics, abstractionism, and
+aesthetics.
 
-**Composition with Yellow, Blue and Red (Image 3)**
-![Image 2](images/Mondrian 3.jpg)
-(Oil painting by Dutch artist Piet Mondrian that was begun in 1937–38 in Holland and completed in 1941–42 in NYC)
-Four discrete areas of primary color are weighted so that color functions as a form of counterbalance to each line’s ascribed role
-Mondrian began the piece while he was living in Paris; in 1938, he went to live in London, then moved to New York City two years later, where the painting was completed.
+However, "Composition No. 10" stands out because it represents a pivotal
+moment in Mondrian's style, shifting from earlier works that relied on
+more square-like formats to those with longer rectangular sections. In
+addition to its structural changes, "Composition No. 10" demonstrates
+Mondrian's innovative use of color and space. The thicker black lines
+and larger rectangular formats allow for greater flexibility and
+experimentation, making it one of his most iconic works from the
+neoplasticist period ("Composition No. 10 (1939-1942) by Piet Mondrian –
+Artchive").
 
+**"Composition with Yellow, Blue and Red" (1942)**
+
+![](images/Mondrian 3.jpg){width="5in"}
+
+"Composition with Yellow, Blue, and Red" was begun in 1937-38 while Piet
+Mondrian was in Holland and completed in 1941-42 after his move to New
+York City. This is a significant piece within Mondrian's body of work,
+for it bridges his European roots with his American evolution.
+
+Regarding Paris, we can see similarities with "Composition with Red,
+Blue and Yellow" (image 1), like the use of primary colors and box-like
+structures. As mentioned previously, these familiar geometric shapes and
+simple color palettes are hallmarks of his neoplasticist style.
+
+At the same time, "Composition with Yellow, Blue, and Red" begins to
+explore the broader use of rectangular formats, similar to "Composition
+No. 10." This expansion into larger rectangular spaces suggests a shift
+in Mondrian's approach to structure and balance, a characteristic that
+emerged as he moved from Europe to the United States.
+
+Besides the broader shapes, there's also a noticeable influence from
+Mondrian's New York period. In contrast to his earlier works, we start
+seeing colored line segments, which run between longer black lines or
+from a black line to the edge of the canvas; they add a sense of
+movement and breaking the rigidity of the original grid structure. This
+clearly illustrates how Mondrian's time in New York influenced his
+evolving style, leading to more dynamic and visually engaging
+compositions.
+
+Overall, "Composition with Yellow, Blue, and Red" encapsulates a
+transition in Mondrian's work, maintaining the bold primary colors and
+linear structure from his Paris period while exploring larger
+rectangular formats and colored line segments that reflect the artist's
+experience and influence during his time in New York (“Composition with
+Yellow, Blue and Red”, Britannica).
 
 # Citations
-https://www.britannica.com/art/abstract-art \
-https://www.thehistoryofart.org/piet-mondrian/composition-with-red-yellow-and-blue/ \
-https://www.artchive.com/artwork/composition-no.-10-1939-1942-by-piet-mondrian/ \
-https://en.wikipedia.org/wiki/Piet_Mondrian \
-https://www.britannica.com/art/oil-painting \
 
+“Composition No. 10 (1939-1942) by Piet Mondrian – Artchive.”
+*Artchive*,
+www.artchive.com/artwork/composition-no.-10-1939-1942-by-piet-mondrian/.
+Accessed 30 Apr. 2024.
 
+“Composition with Yellow, Blue and Red.” *Encyclopædia Britannica*,
+Encyclopædia Britannica, inc.,
+www.britannica.com/topic/Composition-with-Yellow-Blue-and-Red. Accessed
+30 Apr. 2024.
 
+\
+Gurney, Tom. “Composition with Red, Blue and Yellow.” *Composition with
+Red, Blue and Yellow by Piet Mondrian*, TheHistoryOfArt.org,
+www.thehistoryofart.org/piet-mondrian/composition-with-red-yellow-and-blue/.
+Accessed 30 Apr. 2024.
 
+“Piet Mondrian.” *Encyclopædia Britannica*, Encyclopædia Britannica,
+inc., 27 Mar. 2024, www.britannica.com/biography/Piet-Mondrian.
