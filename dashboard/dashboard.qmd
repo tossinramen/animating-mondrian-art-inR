@@ -43,20 +43,6 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 ```
 
-#  {.sidebar}
-
--   Mondrian's Art **Our project is linked here:** [GitHub
-    Repository](https://github.com/vizdata-s24/project-2-plot_twisters)
-
-    **Project By:**
-
-    -   **Tahsin Rahman**
-    -   **Sophie Mansoor**
-    -   **Ishrit Gupta**
-    -   **Lara Garcia**
-
-<br>
-
 # Home
 
 ### Row {height="100%"}
@@ -67,8 +53,6 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 #| title: Composition with Red, Blue, and Yellow
 #| fig-width: 5
 #| fig-height: 5
-
-
 
 rectangles = data.frame(
   xmin = c(2.5, -0.5, 9), 
