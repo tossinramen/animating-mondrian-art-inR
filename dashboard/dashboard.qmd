@@ -65,6 +65,8 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 ```{r}
 #| title: Composition with Red, Blue, and Yellow
+#| fig-width: 5
+#| fig-height: 5
 
 
 
@@ -111,6 +113,9 @@ half_lines_vertical = data.frame(
 
 ```{r}
 #| title: Composition No.10
+#| fig-width: 5
+#| fig-height: 5
+
 
 df = data.frame(
   x = c(3, 8, 8.2, 10),
@@ -157,6 +162,8 @@ df |>
 
 ```{r}
 #| title: Composition with Yellow, Blue, and Red
+#| fig-width: 5
+#| fig-height: 5
 
 rectangles <- data.frame(
   xmin = c(-0.5, 6),
@@ -199,7 +206,6 @@ ggplot() +
 ```{r}
 #| label: plot-1
 
-#first plot
 vertical_lines1 <- data.frame(
   state = "First",
   x = c(2.5), 
