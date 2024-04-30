@@ -516,7 +516,7 @@ Mondrian", Britannica).
 
 **"Composition with Red, Blue and Yellow" (1930)**
 
-![](images/Mondrian 1.jpg){fig-alt="An abstract painting by Piet Mondrian with black lines forming a grid of rectangles and squares. The shapes are filled with primary colors: red, blue, and yellow, along with white spaces. The composition is balanced yet asymmetrical."
+![](images/Mondrian%201.jpg){fig-alt="An abstract painting by Piet Mondrian with black lines forming a grid of rectangles and squares. The shapes are filled with primary colors: red, blue, and yellow, along with white spaces. The composition is balanced yet asymmetrical."
 width="5in"}
 
 "Composition with Red, Blue and Yellow" by Piet Mondrian, created in
@@ -530,7 +530,7 @@ primary colors, stark lines, as well as an emphasis on balance and order
 
 **"Composition N. 10" (1940?)**
 
-![](images/Mondrian 2.jpg){width="5in"}
+![](images/Mondrian%202.jpg){width="5in"}
 
 "Composition No. 10" by Piet Mondrian, loosely dated from 1939 to 1942,
 marks a significant evolution in the artist's neoplasticist period. The
@@ -551,7 +551,7 @@ Artchive").
 
 **"Composition with Yellow, Blue and Red" (1942)**
 
-![](images/Mondrian 3.jpg){width="5in"}
+![](images/Mondrian%203.jpg){width="5in"}
 
 "Composition with Yellow, Blue, and Red" was begun in 1937-38 while Piet
 Mondrian was in Holland and completed in 1941-42 after his move to New
