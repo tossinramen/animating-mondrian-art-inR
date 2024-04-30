@@ -192,16 +192,16 @@ ggplot() +
 
 vertical_lines1 <- data.frame(
   state = "First",
-  x = c(2.5), 
-  y_start = c(NA),
-  y_end = c(NA)
+  x = 2.5, 
+  y_start = NA,
+  y_end = NA
 )
 
 horizontal_lines1 <- data.frame(
   state = "First",
-  y = c(3), 
-  x_start = c(NA),
-  x_end = c(NA)
+  y = 3, 
+  x_start = NA,
+  x_end = NA
 )
 
 segments1 <- data.frame(
@@ -568,6 +568,36 @@ linear structure from his Paris period while exploring larger
 rectangular formats and colored line segments that reflect the artist's
 experience and influence during his time in New York (“Composition with
 Yellow, Blue and Red”, Britannica).
+
+# About the Team
+
+This project was developed by **Plot Twisters** for STA/ISS 313: Advanced Data Visualization at Duke University. The team is comprised of the following team members.
+
+## Team Members
+
+- **Sophie Mansoor**  
+  *Class of 2026*  
+  CS major, Statistical Science minor  
+  *Can't ride a bike*
+
+- **Lara Franca Garcia**  
+  *Class of 2026*  
+  CS and Math double major  
+  *Can't swim*
+
+- **Ishrit Gupta**  
+  *Class of 2026*  
+  Statistics and Public Policy double major  
+  *Can't sleep at night*
+
+- **Tahsin Rahman**  
+  *Class of 2025*  
+  CS+Statistics major  
+  *Can't swim or ride a bike*
+
+## Project Motivation
+
+The **motivation** for this project is that we are all HUGE art fans and wanted to combine our skills in data visualization and our interest in Mondrian's artwork.
 
 # Citations
 
