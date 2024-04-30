@@ -5,6 +5,7 @@ library(RColorBrewer)
 library(thematic)
 library(shinythemes)
 library(shinyvalidate)
+library(rsconnect)
 
 ui <- fluidPage(
   titlePanel("Mondrian Art"),
@@ -39,7 +40,7 @@ ui <- fluidPage(
       )
     ),
     mainPanel(
-      plotOutput("artDisplay", width = "800px", height = "800px")
+      plotOutput("artDisplay", width = "650px", height = "650px")
     )
   )
 )

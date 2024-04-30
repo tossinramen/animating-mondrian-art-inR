@@ -5,8 +5,8 @@ format:
     nav-buttons: [github]
     github: https://github.com/vizdata-s24/project-2-plot_twisters
 logo: images/clipboard-1900000438.png
-fig-width: 10
-fig-asp: 0.3
+#fig-width: 10
+#fig-asp: 0.3
 params:
   today: "2024-5-01"
 editor: 
@@ -51,8 +51,8 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 ```{r}
 #| title: Composition with Red, Blue, and Yellow
-#| fig-width: 5
-#| fig-height: 5
+#| fig-width: 6
+#| fig-height: 6
 
 rectangles = data.frame(
   xmin = c(2.5, -0.5, 9), 
@@ -302,8 +302,8 @@ segments3 <- data.frame(
 
 ```{r}
 #| label: everything-animation
-#| fig-width: 5
-#| fig-height: 5
+#| fig-width: 10
+#| fig-height: 10
 
 # Combine all data frames for vertical lines, horizontal lines, segments, and rectangles
 all_vertical_lines <- rbind(vertical_lines1, vertical_lines2, vertical_lines3)
