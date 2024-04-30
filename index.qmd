@@ -44,6 +44,7 @@ segments1 <- data.frame(
 )
 
 half_lines_vertical <- data.frame(
+  state = "First",
   x = 9.2,             
   y_start = -0.5,       
   y_end = 3          
@@ -167,10 +168,12 @@ all_rectangles <- rbind(rectangles1, rectangles2, rectangles3)
 
 # Create a unified ggplot object with transition_states
 combined_plot <- ggplot() +
+   geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
-  geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
   geom_segment(data = all_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
+  geom_segment(data = half_lines_vertical, 
+               aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
   scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
   transition_states(state, transition_length = 2, state_length = 2) +
