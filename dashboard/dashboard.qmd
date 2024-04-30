@@ -47,12 +47,12 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 ### Row {height="100%"}
 
-### Column {width="25%"}
+### Column {width="50%"}
 
 ```{r}
 #| title: Composition with Red, Blue, and Yellow
-#| fig-width: 6
-#| fig-height: 6
+#| fig-width: 5
+#| fig-height: 5
 
 rectangles = data.frame(
   xmin = c(2.5, -0.5, 9), 
@@ -92,8 +92,6 @@ half_lines_vertical = data.frame(
                                "yellow" = "#E8B600")) +
   my_theme()
 ```
-
-### Column {width="25%"}
 
 ```{r}
 #| title: Composition No.10
@@ -141,8 +139,6 @@ df |>
 
 
 ```
-
-### Column {width="25%"}
 
 ```{r}
 #| title: Composition with Yellow, Blue, and Red
