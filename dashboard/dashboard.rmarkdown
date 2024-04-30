@@ -1,0 +1,617 @@
+---
+title: "Mondrian Art 🎨 🖌️"
+format: 
+  dashboard:
+    nav-buttons: [github]
+    github: https://github.com/vizdata-s24/project-2-plot_twisters
+logo: images/clipboard-1900000438.png
+fig-width: 10
+fig-asp: 0.3
+params:
+  today: "2024-5-01"
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| label: load-packages
+#| message: false
+#| include: false
+library(ggplot2)
+library(gganimate)
+library(tidyverse)
+
+theme_set(theme_minimal(base_size = 24, base_family = "Atkinson Hyperlegible"))
+```
+
+```{r}
+#| label: set-inputs
+#| include: false
+today <- as.Date(params$today)
+
+my_theme <- function(base_size = 12, base_family = "Helvetica"){
+    theme_minimal() +
+    theme(axis.title.y = element_blank(),axis.title.x = element_blank(),
+    plot.title = element_text(face="bold", size=16),
+    axis.text = element_blank(),
+    plot.background = element_rect(fill = 'ghostwhite',color='white'),
+    panel.grid = element_blank(),
+    legend.position = 'None', legend.title = element_blank())
+}
+
+
+```
+
+
+#  {.sidebar}
+
+-   Mondrian's Art **Our project is linked here:** [GitHub
+    Repository](https://github.com/vizdata-s24/project-2-plot_twisters)
+
+    **Project By:**
+
+    -   **Tahsin Rahman**
+    -   **Sophie Mansoor**
+    -   **Ishrit Gupta**
+    -   **Lara Garcia**
+
+<br>
+
+# Home
+
+### Row {height="100%"}
+
+### Column {width="25%"}
+
+
+```{r}
+#| title: Composition with Red, Blue, and Yellow
+#| fig-width: 5
+#| fig-height: 5
+
+
+
+rectangles = data.frame(
+  xmin = c(2.5, -0.5, 9), 
+  xmax = c(10.5, 2.5, 10.5), 
+  ymin = c(3, -0.5, -0.5), 
+  ymax = c(10.5, 3, 1.25),
+  color = c("red", "blue", "yellow")
+)
+
+
+x_values = data.frame(x = c(2.5))
+y_values = data.frame(y = c(3))
+
+half_lines_horizontal = data.frame(
+  x_start = c(-0.5, 9), 
+  x_end = c(2.5, 10.5), 
+  y = c(7, 1.25)
+)
+
+half_lines_vertical = data.frame(
+  x = 9,             
+  y_start = -0.5,       
+  y_end = 3          
+)
+
+  ggplot() +
+  geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, 
+                                   ymax = ymax, fill = as.factor(color))) +
+  geom_vline(xintercept = x_values$x, linewidth = 4) +
+  geom_hline(yintercept = y_values$y, linewidth = 4) + 
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+  geom_segment(data = half_lines_horizontal, aes(x = x_start, xend = x_end, y = y),
+               linewidth = 4) +
+  geom_segment(data = half_lines_vertical, aes(x = x, y = y_start, xend = x, 
+                                               yend = y_end), linewidth = 4) +
+  scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", 
+                               "yellow" = "#E8B600")) +
+  my_theme()
+```
+
+
+### Column {width="25%"}
+
+
+```{r}
+#| title: Composition No.10
+#| fig-width: 5
+#| fig-height: 5
+
+
+df = data.frame(
+  x = c(3, 8, 8.2, 10),
+  y = c(0, 0, 0, 0))
+
+x_values = data.frame(x = c(1, 2.8, 8, 9.2, 10))
+y_values = data.frame(y = c(4, 5, 7))
+
+half_lines = data.frame(
+  x_start = c(2.8, 2.8, 1, 2.8),
+  x_end = c(8, 8, 9.2, 10),
+  y = c(10, 7.8, 4.5, 0))
+
+rectangles = data.frame(
+  xmin = c(-0.5, -0.5, -0.5, 5.5, 8, 10),
+  xmax = c(1, 1, 1, 6, 10, 10.5),
+  ymin = c(7.8, 4, 2.8, -0.5, -0.5, 5),
+  ymax = c(11, 5, 3.5, 0, 0, 7),
+  color = c("blue", "yellow", "red", "red", "yellow", "red"))
+
+df |>
+  ggplot()+
+  geom_rect(data = rectangles, aes(xmin = xmin,
+                              xmax = xmax, 
+                              ymin = ymin,
+                              ymax =ymax,
+            fill=as.factor(color))) +
+  geom_vline(xintercept = x_values$x, linewidth = 3)+
+  geom_hline(yintercept = y_values$y, linewidth = 3) + 
+  coord_cartesian(xlim = c(0,10), ylim = c(0,10))+
+  geom_segment(data = half_lines, aes(x = x_start, xend = x_end, y = y), linewidth = 3)+
+  annotate(geom = "segment", 
+           y = 7.8, 
+           x = -0.5, 
+           xend = 1,
+           linewidth = 5)+
+  scale_fill_manual(values = c("blue" = "#255293","red" = "#db0a16", "yellow" = "yellow"))+
+  my_theme() 
+
+
+```
+
+
+### Column {width="25%"}
+
+
+```{r}
+#| title: Composition with Yellow, Blue, and Red
+#| fig-width: 5
+#| fig-height: 5
+
+rectangles <- data.frame(
+  xmin = c(-0.5, 6),
+  xmax = c(1, 7.5),
+  ymin = c(7.5, .5),
+  ymax = c(13, 2),
+  color = c("#E8B600", "#CC0000")
+)
+
+vertical_lines <- data.frame(
+  x = c(1, 2.5, 3.5, 4, 6, 7.5, 8, 9.7)
+)
+
+horizontal_lines <- data.frame(
+  y = c(2, 4, 6, 7.5)
+)
+
+additional_segments <- data.frame(
+  x_start = c(1.05, 6, 6, 9.75),
+  x_end = c(3.95, 8, 8, 10.05),
+  y = c(0.25, 0.4, -0.25, 0.3),
+  color = c("#1B6FAA", "black", "black", "#CC0000")
+)
+
+ggplot() +
+  geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = color)) +
+  scale_fill_identity() +
+  geom_vline(data = vertical_lines, aes(xintercept = x), color = "black", size = 2) +
+  geom_hline(data = horizontal_lines, aes(yintercept = y), color = "black", size = 4) +
+  geom_segment(data = additional_segments, aes(x = x_start, xend = x_end, y = y, yend = y, color = color), size = 3) +
+  scale_color_identity() +
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+  my_theme()
+```
+
+
+# Animation
+
+## Row {height="20%"}
+
+
+```{r}
+#| label: plot-1
+
+vertical_lines1 <- data.frame(
+  state = "First",
+  x = c(2.5), 
+  y_start = c(NA),
+  y_end = c(NA)
+)
+
+horizontal_lines1 <- data.frame(
+  state = "First",
+  y = c(3), 
+  x_start = c(NA),
+  x_end = c(NA)
+)
+
+segments1 <- data.frame(
+  state = "First",
+  x_start = c(-0.5, 9.2),
+  x_end = c(2.5, 10.5),
+  y = c(7, 1.25),
+  color = c("black", "black")
+)
+
+half_lines_vertical <- data.frame(
+  state = "First",
+  x = 9.2,             
+  y_start = -0.5,       
+  y_end = 3          
+)
+
+rectangles1 <- data.frame(
+  state = "First",
+  xmin = c(2.5, -0.5, 9.2), 
+  xmax = c(10.5, 2.5, 10.5), 
+  ymin = c(3, -0.5, -0.5), 
+  ymax = c(10.5, 3, 1.25),
+  color = c("red", "blue", "yellow")
+)
+
+```
+
+```{r}
+#| label: plot-2
+
+vertical_lines2 <- data.frame(
+  state = "Second",
+  x = c(1, 2.8, 8, 9.2, 10),  
+  y_start = c(NA, NA, NA, NA, NA),
+  y_end = c(NA, NA, NA, NA, NA)
+)
+
+horizontal_lines2 <- data.frame(
+  state = "Second",
+  y = c(4, 5, 7),  
+  x_start = c(NA, NA, NA),
+  x_end = c(NA, NA, NA)
+)
+
+segments2 <- data.frame(
+  state = "Second",
+  x_start = c(2.8, 2.8, 1, 2.8),
+  x_end = c(8, 8, 9.2, 10),
+  y = c(10, 7.8, 4.5, 0),
+  color = c("black", "black", "black", "black")
+)
+
+rectangles2 <- data.frame(
+  state = "Second",
+  xmin = c(-0.5, -0.5, -0.5, 5.5, 8, 10),
+  xmax = c(1, 1, 1, 6, 10, 10.5),
+  ymin = c(7.8, 4, 2.8, -0.5, -0.5, 5),
+  ymax = c(11, 5, 3.5, 0, 0, 7),
+  color = c("blue", "yellow", "red", "red", "yellow", "red")
+)
+
+all_vertical_lines <- rbind(vertical_lines1, vertical_lines2)
+all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2)
+all_segments <- rbind(segments1, segments2)
+all_rectangles <- rbind(rectangles1, rectangles2)
+
+
+# p <- ggplot() +
+#    geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
+#   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
+#   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
+#   geom_segment(aes(x = x_start, xend = x_end, y = y), data = all_segments, linewidth = 3) +
+#   geom_segment(data = half_lines_vertical, 
+#                aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
+#   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600")) +
+#   transition_states(state, transition_length = 2, state_length = 2) +
+#   enter_grow() + 
+#   enter_fade() + 
+#   coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+#   my_theme()
+# 
+# anim <- animate(p, duration = 15, fps = 20, end_pause = 5)
+# anim
+
+```
+
+```{r}
+#| label: plot-3
+
+rectangles3 <- data.frame(
+  state = "Third",
+  xmin = c(-0.5, 6),
+  xmax = c(1, 7.5),
+  ymin = c(7.5, .3),
+  ymax = c(13, 2),
+  color = c("yellow", "red")
+)
+
+vertical_lines3 <- data.frame(
+  state = "Third",
+  x = c(1, 2.5, 3.5, 4, 6, 7.5, 8, 9.7),
+  y_start = c(NA, NA, NA, NA, NA, NA, NA, NA),
+  y_end = c(NA, NA, NA, NA, NA, NA, NA, NA)
+)
+
+horizontal_lines3 <- data.frame(
+  state = "Third",
+  y = c(2, 4, 6, 7.5),
+  x_start = c(NA, NA, NA, NA),
+  x_end = c(NA, NA, NA, NA)
+)
+
+segments3 <- data.frame(
+  state = "Third",
+  x_start = c(1.05, 6, 6, 9.75),
+  x_end = c(3.95, 8, 8, 10.05),
+  y = c(0.25, 0.4, -0.25, 0.3),
+  color = c("#1B6FAA", "black", "black", "red")
+)
+```
+
+```{r}
+#| label: everything-animation
+#| fig-width: 5
+#| fig-height: 5
+
+# Combine all data frames for vertical lines, horizontal lines, segments, and rectangles
+all_vertical_lines <- rbind(vertical_lines1, vertical_lines2, vertical_lines3)
+all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2, horizontal_lines3)
+all_segments <- rbind(segments1, segments2, segments3)
+all_rectangles <- rbind(rectangles1, rectangles2, rectangles3)
+
+# Create a unified ggplot object with transition_states
+combined_plot <- ggplot() +
+   geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
+  geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
+  geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
+  geom_segment(data = all_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
+  geom_segment(data = half_lines_vertical, 
+               aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
+  scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
+  scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
+  transition_states(state, transition_length = 2, state_length = 2) +
+  enter_grow() + 
+  enter_fade() + 
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+  my_theme()
+
+# Create the animation
+combined_anim <- animate(combined_plot, duration = 20, fps = 20, end_pause = 5)
+
+# Render the animation
+combined_anim
+
+```
+
+
+# Customization
+
+## Row {height="40%"}
+
+### Column {width="40%"}
+
+# Write-up
+
+**Introduction**\
+
+Our project, "Animating Mondrian," is an exploratory venture into the
+transformation of Piet Mondrian's art using `ggplot2` and `gganimate`
+within the R programming environment. Piet Mondrian, a pioneer in the
+development of modern abstract art and a major proponent of the Dutch
+abstract art movement De Stijl, used non-representational
+forms—primarily rectangles, squares, and lines—and a restricted palette
+of primary colors and non-colors. His works, which offer a rich field
+for digital reinterpretation, underscore our project's goal to animate
+transitions between his artworks. This not only visualizes the evolution
+of his art but provides a new perspective on understanding and
+interacting with abstract compositions.
+
+**Historical Context and Motivation**\
+
+Piet Mondrian's art was profoundly influenced by his desire to express
+the spiritual through the abstract. Initially inspired by the landscape
+of Brabant, where he noted the interplay of lines and colors in nature,
+his work progressively embraced abstraction. The influence of
+Post-Impressionists and his exposure to the dynamism of American jazz
+and city life in New York further fueled his abstract expressions. Our
+motivation stems from a fascination with Mondrian’s ability to convey
+deep aesthetic and philosophical meaning through minimalistic visual
+elements. We aim to demystify the static nature of his paintings, using
+animations to hypothesize the dynamic processes potentially envisioned
+in Mondrian's creative mind.
+
+**Technical Implementation**\
+
+To delve into Mondrian’s abstract world, we recreated three significant
+artworks: "Composition with Red, Blue, and Yellow", "Composition N.10",
+and "Composition with Yellow, Blue, and Red". These digital
+reproductions served as the groundwork for our animations, which were
+crafted using `gganimate` to simulate transitions that bring the
+evolution of Mondrian's art to life. This involved dynamically altering
+line segments and color fields to morph one painting into another,
+highlighting the fluidity and transformative potential within the bounds
+of geometric abstraction.
+
+These animations not only serve to illustrate Mondrian's artistic
+evolution but also emphasize the simplicity and power of minimalist art
+in conveying complex ideas. Through this technical endeavor, we observed
+how subtle modifications in geometric forms and their interactions could
+dramatically alter visual perception and convey movement and growth.
+
+**Interactive Application**\
+
+To extend the project’s educational and exploratory dimensions, we
+developed an interactive application that allows users to manipulate the
+elements of Mondrian's compositions. This tool empowers users to alter
+the number of lines, adjust their orientations, modify the color
+schemes, and shift positions, thus offering a hands-on experience of
+Mondrian's methods and artistic decisions. This interactive component is
+designed to deepen the user's understanding of neoplasticism by enabling
+them to explore and experiment with its defining features actively.
+
+**Conclusion**\
+
+"Animating Mondrian" combines historical art analysis with modern
+technological tools, showcasing how digital media can offer fresh
+insights into well-established art forms. This project not only enhanced
+our skills in animation and data visualization but also deepened our
+appreciation of the complexities inherent in abstract art. By converting
+static images into dynamic sequences, we invite viewers to engage with
+Mondrian’s work in a novel and interactive manner, thus broadening the
+accessibility and understanding of his art through the lens of data
+visualization.
+
+The project repository, detailed with codes, datasets, and outputs, is
+structured to facilitate easy exploration of our methods and findings,
+offering a resource for those interested in the intersection of art and
+technology. This endeavor represents not just a technical achievement
+but also a new paradigm for interdisciplinary education, promoting a
+deeper appreciation of art in the digital age.
+
+In conclusion, "Animating Mondrian" is more than a mere academic
+exercise; it is a bridge connecting the past with the present, inviting
+art lovers and technologists alike to explore the beauty and complexity
+of Mondrian’s legacy through modern visualization techniques. Through
+this project, we have laid a foundation for future explorations into the
+digital representation of abstract art, hoping to inspire others to
+explore this enriching field.
+
+# About the Art
+
+**The Artist**
+
+![](images/Piet_Mondriaan.jpg){width="2in"}
+
+Piet Mondrian (born March 7, 1872, Amersfoort, Netherlands—died February
+1, 1944, New York, New York, U.S.) was a painter who was an important
+leader in the development of modern abstract art, also largely
+responsible for the art movement known as "De Stijl."
+
+Initially influenced by the serene landscapes of Brabant (Belgium) while
+visiting a friend, Mondrian's early works displayed a rhythmic framework
+and compositional structure. Upon returning to Holland, his vision
+shifted towards abstraction, marked by a pursuit of harmony and rhythm
+through line and color. He had a new rhythmic framework, leaning more
+toward compositional structure than toward the traditional picturesque
+values of light and shade. In "The Red Tree" (1908), for example,
+Mondrian captured his unique interpretation of nature by balancing
+contrasting colors of red and blue. This harmony is also reflected in
+the dynamic motion of the tree against the calmness of the blue sky.
+Through this contrast, Mondrian achieved a sense of equilibrium, a theme
+that would continue to guide his depiction of the natural world. Even
+so, for a while, Mondrian's work still remained more or less within the
+traditional boundaries of contemporary Dutch art.
+
+After some time, he shifted towards neoplasticism, liberating his art
+from representing fleeting visual perceptions and his personal
+temperament; he now expressed "a true vision of reality", which he
+sought to convey harmony through completely abstract rules of geometry
+and color. This shift is reflected in his titles, which transitioned
+from descriptive references to nature or architecture to more abstract
+compositions ("The Red Tree" vs. "Diagonal Composition").
+
+Upon his move to New York City in 1940, Mondrian's art was invigorated
+by the city's vibrant energy and the rhythms of American music. He
+departed from his earlier austere patterns of black lines, embracing
+colored bands and small rectangles that coalesced into dynamic
+compositions of vertical and horizontal lines.
+
+Mondrian's artistic journey encapsulates a progression from
+representational elements towards pure abstraction, driven by a desire
+to convey a deeper spiritual message. His innovative use of line, color,
+and form continues to inspire artists and audiences alike, cementing his
+legacy as a groundbreaking figure in the history of art ("Piet
+Mondrian", Britannica).
+
+**"Composition with Red, Blue and Yellow" (1930)**
+
+![](images/Mondrian%201.jpg){fig-alt="An abstract painting by Piet Mondrian with black lines forming a grid of rectangles and squares. The shapes are filled with primary colors: red, blue, and yellow, along with white spaces. The composition is balanced yet asymmetrical."
+width="5in"}
+
+"Composition with Red, Blue and Yellow" by Piet Mondrian, created in
+1930, represents a culmination of the artist's exploration of
+neoplasticism. The clean lines and simple geometric forms reflect
+Mondrian's move away from earlier styles that included landscapes and
+portraits, as well as his more abstract and cubist works. This painting
+encapsulates the essence of Mondrian's signature style: the use of
+primary colors, stark lines, as well as an emphasis on balance and order
+(Gurney).
+
+**"Composition N. 10" (1940?)**
+
+![](images/Mondrian%202.jpg){width="5in"}
+
+"Composition No. 10" by Piet Mondrian, loosely dated from 1939 to 1942,
+marks a significant evolution in the artist's neoplasticist period. The
+painting reflects his characteristic geometric shapes and bold primary
+colors, with black lines used to separate color planes. This approach
+creates a balanced harmony between mathematics, abstractionism, and
+aesthetics.
+
+However, "Composition No. 10" stands out because it represents a pivotal
+moment in Mondrian's style, shifting from earlier works that relied on
+more square-like formats to those with longer rectangular sections. In
+addition to its structural changes, "Composition No. 10" demonstrates
+Mondrian's innovative use of color and space. The thicker black lines
+and larger rectangular formats allow for greater flexibility and
+experimentation, making it one of his most iconic works from the
+neoplasticist period ("Composition No. 10 (1939-1942) by Piet Mondrian –
+Artchive").
+
+**"Composition with Yellow, Blue and Red" (1942)**
+
+![](images/Mondrian%203.jpg){width="5in"}
+
+"Composition with Yellow, Blue, and Red" was begun in 1937-38 while Piet
+Mondrian was in Holland and completed in 1941-42 after his move to New
+York City. This is a significant piece within Mondrian's body of work,
+for it bridges his European roots with his American evolution.
+
+Regarding Paris, we can see similarities with "Composition with Red,
+Blue and Yellow" (image 1), like the use of primary colors and box-like
+structures. As mentioned previously, these familiar geometric shapes and
+simple color palettes are hallmarks of his neoplasticist style.
+
+At the same time, "Composition with Yellow, Blue, and Red" begins to
+explore the broader use of rectangular formats, similar to "Composition
+No. 10." This expansion into larger rectangular spaces suggests a shift
+in Mondrian's approach to structure and balance, a characteristic that
+emerged as he moved from Europe to the United States.
+
+Besides the broader shapes, there's also a noticeable influence from
+Mondrian's New York period. In contrast to his earlier works, we start
+seeing colored line segments, which run between longer black lines or
+from a black line to the edge of the canvas; they add a sense of
+movement and breaking the rigidity of the original grid structure. This
+clearly illustrates how Mondrian's time in New York influenced his
+evolving style, leading to more dynamic and visually engaging
+compositions.
+
+Overall, "Composition with Yellow, Blue, and Red" encapsulates a
+transition in Mondrian's work, maintaining the bold primary colors and
+linear structure from his Paris period while exploring larger
+rectangular formats and colored line segments that reflect the artist's
+experience and influence during his time in New York (“Composition with
+Yellow, Blue and Red”, Britannica).
+
+# Citations
+
+“Composition No. 10 (1939-1942) by Piet Mondrian – Artchive.”
+*Artchive*,
+www.artchive.com/artwork/composition-no.-10-1939-1942-by-piet-mondrian/.
+Accessed 30 Apr. 2024.
+
+“Composition with Yellow, Blue and Red.” *Encyclopædia Britannica*,
+Encyclopædia Britannica, inc.,
+www.britannica.com/topic/Composition-with-Yellow-Blue-and-Red. Accessed
+30 Apr. 2024.
+
+\
+Gurney, Tom. “Composition with Red, Blue and Yellow.” *Composition with
+Red, Blue and Yellow by Piet Mondrian*, TheHistoryOfArt.org,
+www.thehistoryofart.org/piet-mondrian/composition-with-red-yellow-and-blue/.
+Accessed 30 Apr. 2024.
+
+“Piet Mondrian.” *Encyclopædia Britannica*, Encyclopædia Britannica,
+inc., 27 Mar. 2024, www.britannica.com/biography/Piet-Mondrian.
+
