@@ -31,28 +31,34 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 #first plot
 vertical_lines1 <- data.frame(
   state = "First",
-  x = c(2.5, 9), 
-  y_start = c(NA, -0.5),
-  y_end = c(NA, 3)
+  x = c(2.5), 
+  y_start = c(NA),
+  y_end = c(NA)
 )
 
 horizontal_lines1 <- data.frame(
   state = "First",
-  y = c(3, 7), 
-  x_start = c(NA, -0.5),
-  x_end = c(NA, 2.5)
+  y = c(3), 
+  x_start = c(NA),
+  x_end = c(NA)
 )
 
 segments1 <- data.frame(
   state = "First",
-  x_start = c(-0.5, 9),
+  x_start = c(-0.5, 9.2),
   x_end = c(2.5, 10.5),
   y = c(7, 1.25)
 )
 
+half_lines_vertical <- data.frame(
+  x = 9.2,             
+  y_start = -0.5,       
+  y_end = 3          
+)
+
 rectangles1 <- data.frame(
   state = "First",
-  xmin = c(2.5, -0.5, 9), 
+  xmin = c(2.5, -0.5, 9.2), 
   xmax = c(10.5, 2.5, 10.5), 
   ymin = c(3, -0.5, -0.5), 
   ymax = c(10.5, 3, 1.25),
@@ -90,17 +96,19 @@ rectangles2 <- data.frame(
   color = c("blue", "yellow", "red", "red", "yellow", "red")
 )
 
-
 all_vertical_lines <- rbind(vertical_lines1, vertical_lines2)
 all_horizontal_lines <- rbind(horizontal_lines1, horizontal_lines2)
 all_segments <- rbind(segments1, segments2)
 all_rectangles <- rbind(rectangles1, rectangles2)
 
+
 p <- ggplot() +
+   geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
-  geom_rect(data = all_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
   geom_segment(aes(x = x_start, xend = x_end, y = y), data = all_segments, linewidth = 3) +
+  geom_segment(data = half_lines_vertical, 
+               aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600")) +
   transition_states(state, transition_length = 2, state_length = 2) +
   enter_grow() + 
@@ -108,7 +116,7 @@ p <- ggplot() +
   coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
   my_theme()
 
-anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
+anim <- animate(p, duration = 15, fps = 20, end_pause = 5)
 anim
 
 ```
