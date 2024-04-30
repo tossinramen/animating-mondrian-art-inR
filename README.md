@@ -7,7 +7,7 @@ Our project, in which we animate Mondrian's art, is a venture into the transform
 
 Our inspiration comes from our admiration for Mondrian's capacity to use spare visual components to express profound aesthetic and philosophical meaning. By employing animations to conjecture the dynamic processes that Mondrian's creative mind could have imagined, we hope to dispel the mystery surrounding the static quality of his paintings.
 
-Our final product is a dashboard and an app that allows users to customize the artwork by adding horizontal and vertical lines, changing the color scheme, and moving the lines of artwork. The dashboard displays information about Piet Mondrian, his artwork, our recreation of his artwork, our animation of the artwork, and our app hat lets users customize his artwork.
+Our final product is a dashboard and an app that allows users to customize the artwork by adding horizontal and vertical lines, changing the color scheme, and moving the lines of artwork. The dashboard displays information about Piet Mondrian, his artwork, our recreation of his artwork, our animation of the artwork, and our app hat lets users customize his artwork. 
 
 # How to use Dashboard
 Our dashboard can be found here: https://vizdata-s24.github.io/project-2-plot_twisters/
