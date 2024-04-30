@@ -22,9 +22,8 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("artPeriod", "Select Art Period:",
                   choices = c("Paris", "New York")),
-      sliderInput("colorScheme", "Color Scheme:",
-                  min = 1, max = 4, value = 1,
-                  step = 1, ticks = FALSE),  
+      selectInput("colorScheme", "Color Scheme:",
+                  choices = c("Original", "CMYK", "Grayscale", "Modern")),  
       numericInput("numVerticalLines", "Number of Vertical Lines:",
                    min = 0, max = 10, value = 0),
       numericInput("numHorizontalLines", "Number of Horizontal Lines:",
@@ -39,10 +38,6 @@ ui <- fluidPage(
           #colorScheme .irs {margin-top: 0px;}
           #colorScheme .irs-with-grid {bottom: 0px;}
         '))
-      ),
-      div(
-        style = "display: flex; justify-content: space-between; padding-right: 20px; padding-left: 20px;",
-        span("RYB"), span("CMYK"), span("Grayscale"), span("Modern")  # Labels for the slider positions
       )
     ),
     mainPanel(
@@ -67,12 +62,7 @@ server <- function(input, output, session) {
   iv$enable()
   
   
-  color_palettes <- list(
-    ryb = c("#CC0000", "#E8B600", "#0000FF"),
-    cmyk = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
-    grayscale = c("#000000", "#555555", "#AAAAAA", "#FFFFFF"),
-    modern = c("#800080", "#00FF00", "#FFA500", "#FFC0CB")
-  )
+
   
   my_theme <- function() {
     theme_minimal() +
@@ -91,11 +81,17 @@ server <- function(input, output, session) {
     if (input$artPeriod == "Paris") {
       
       
+      color_palettes_paris <- list(
+        Original = c("#CC0000", "#E8B600", "#0000FF"),
+        CMYK = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
+        Grayscale = c("#000000", "#555555", "#AAAAAA", "#FFFFFF"),
+        Modern = c("#800080", "#00FF00", "#FFA500", "#FFC0CB")
+      )
       
-      selected_palette <- color_palettes[[input$colorScheme]]
       
-      set.seed(1)
+      selected_palette <- color_palettes_paris[[input$colorScheme]]
       
+    
       rectangles <- data.frame(
         xmin = c(2.5, -0.5, 9),
         xmax = c(10.5, 2.5, 10.5),
@@ -158,9 +154,16 @@ server <- function(input, output, session) {
       
     } else if (input$artPeriod == "New York") {
       
-      selected_palette <- color_palettes[[input$colorScheme]]
       
-      set.seed(1)
+      color_palettes_ny <- list(
+        Original = c("#CC0000", "#E8B600", "#1B6FAA"),
+        CMYK = c("#00FFFF", "#FF00FF", "#FFFF00", "#000000"),
+        Grayscale = c("#000000", "#555555", "#AAAAAA", "#FFFFFF"),
+        Modern = c("#800080", "#00FF00", "#FFA500", "#FFC0CB")
+      )
+      
+      selected_palette <- color_palettes_ny[[input$colorScheme]]
+      
       
       rectangles <- data.frame(
         xmin = c(-0.5, 2.5, 4, 6, 7.5),
