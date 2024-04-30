@@ -189,7 +189,7 @@ ggplot() +
 ### Column {width="40%"}
 
 
-# Forecast
+# Animation
 
 
 
@@ -217,7 +217,7 @@ ggplot() +
 ### Column {width="40%"}
 
 
-# Historical
+# Customization
 
 
 ## Row {height="20%"}
@@ -241,11 +241,5 @@ ggplot() +
 ### Column {width="40%"}
 
 
-# Data
 
-## Row {height="40%"}
-
-
-
-## Row {height="60%"}
 
