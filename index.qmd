@@ -19,7 +19,6 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 ```{r}
 #| label: plot-1
 
-
 #first plot
 vertical_lines1 <- data.frame(
   state = "First",
