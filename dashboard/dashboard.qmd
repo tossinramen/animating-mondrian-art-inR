@@ -12,6 +12,7 @@ params:
 editor: 
   markdown: 
     wrap: 72
+
 ---
 
 ```{r}
@@ -45,7 +46,7 @@ my_theme <- function(base_size = 12, base_family = "Helvetica"){
 
 # Home
 
-### Row {height="100%"}
+### Row {height="50%"}
 
 ### Column {width="50%"}
 
@@ -184,11 +185,22 @@ ggplot() +
   my_theme()
 ```
 
+### Row {height="50%"}
+
+### Column {width="100%"}
+
+**Original Work**\
+
+![](images/Mondrian%201.jpg){width="2.5in" style="margin-left: 90px"}
+![](images/Mondrian%202.jpg){width="2.5in" style="margin-left: 240px"}
+![](images/Mondrian%203.jpg){width="2.5in" style="margin-left: 225px"}
+
 # Animation
 
 ## Row {height="20%"}
 
 ```{r}
+
 #| label: plot-1
 
 vertical_lines1 <- data.frame(
@@ -228,7 +240,6 @@ rectangles1 <- data.frame(
   ymax = c(10.5, 3, 1.25),
   color = c("red", "blue", "yellow")
 )
-
 ```
 
 ```{r}
@@ -302,6 +313,7 @@ segments3 <- data.frame(
 ```
 
 ```{r}
+
 #| label: everything-animation
 #| fig-width: 10
 #| fig-height: 10
@@ -319,13 +331,13 @@ combined_plot <- ggplot() +
   geom_vline(aes(xintercept = x), data = all_vertical_lines, linewidth = 3) +
   geom_hline(aes(yintercept = y), data = all_horizontal_lines, linewidth = 3) +
   geom_segment(data = all_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
-  geom_segment(data = half_lines_vertical, 
+  geom_segment(data = half_lines_vertical,
                aes(x = x, y = y_start, xend = x, yend = y_end), linewidth = 3) +
   scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
   scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
   transition_states(state, transition_length = 2, state_length = 2) +
-  enter_grow() + 
-  enter_fade() + 
+  enter_grow() +
+  enter_fade() +
   coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
   my_theme()
 
@@ -342,6 +354,8 @@ combined_anim
 ## Row {height="40%"}
 
 ### Column {width="40%"}
+
+
 
 # Write-up
 
