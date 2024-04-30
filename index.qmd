@@ -112,3 +112,71 @@ anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
 anim
 
 ```
+
+```{r}
+#| label: plot-2-and-3-animation
+
+
+segments2 <- data.frame(
+  state = "Second",
+  x_start = c(2.8, 2.8, 1, 2.8),
+  x_end = c(8, 8, 9.2, 10),
+  y = c(10, 7.8, 4.5, 0),
+  color = c("black", "black", "black", "black")
+
+)
+
+rectangles3 <- data.frame(
+  state = "Third",
+  xmin = c(-0.5, 6),
+  xmax = c(1, 7.5),
+  ymin = c(7.5, .5),
+  ymax = c(13, 2),
+  color = c("yellow", "red")
+)
+
+vertical_lines3 <- data.frame(
+  state = "Third",
+  x = c(1, 2.5, 3.5, 4, 6, 7.5, 8, 9.7),
+  y_start = c(NA, NA, NA, NA, NA, NA, NA, NA),
+  y_end = c(NA, NA, NA, NA, NA, NA, NA, NA)
+)
+
+horizontal_lines3 <- data.frame(
+  state = "Third",
+  y = c(2, 4, 6, 7.5),
+  x_start = c(NA, NA, NA, NA),
+  x_end = c(NA, NA, NA, NA)
+)
+
+segments3 <- data.frame(
+  state = "Third",
+  x_start = c(1.05, 2.6, 6, 6, 9.75),
+  x_end = c(3.95, 3.39, 8, 8, 10.05),
+  y = c(0.25, 0, 0.4, -0.25, 0.3),
+  color = c("#1B6FAA", "white", "black", "black", "red")
+)
+
+two_3_vertical_lines <- rbind(vertical_lines2, vertical_lines3)
+two_3_horizontal_lines <- rbind(horizontal_lines2, horizontal_lines3)
+two_3_segments <- rbind(segments2, segments3)
+two_3_rectangles <- rbind(rectangles2, rectangles3)
+
+
+p <- ggplot() +
+  geom_vline(aes(xintercept = x), data = two_3_vertical_lines, linewidth = 3) +
+  geom_hline(aes(yintercept = y), data = two_3_horizontal_lines, linewidth = 3) +
+  geom_rect(data = two_3_rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
+  geom_segment(data = two_3_segments, aes(x = x_start, xend = x_end, y = y, color = color), linewidth = 3) +
+  scale_fill_manual(values = c("blue" = "#255293", "red" = "#db0a16", "yellow" = "#E8B600", "white" = "white")) +
+  scale_color_manual(values = c("#1B6FAA" = "#1B6FAA", "black" = "black", "white" = "white", "red" = "#db0a16")) +
+  transition_states(state, transition_length = 2, state_length = 2) +
+  enter_grow() + 
+  enter_fade() + 
+  coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
+  my_theme()
+
+
+anim <- animate(p, duration = 10, fps = 20, end_pause = 5)
+anim
+```

@@ -214,7 +214,7 @@ server <- function(input, output, session) {
         geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
         geom_segment(data = vertical_lines_NYfinal, aes(x = x, y = -0.5, xend = x, yend = y), color = "black", size = 2) +
         geom_segment(data = horizontal_lines_NYfinal, aes(x = -0.5, y = y, xend = x, yend = y), color = "black", size = 4) +
-        geom_segment(data= horizontal_lines_NYfinal, aes(x=1.1, y=0.25, xend=3.9, yend=0.25), color = "#1B6FAA", size = 3) +
+        geom_segment(data= horizontal_lines_NYfinal, aes(x=1.05, y=0.25, xend=3.95, yend=0.25), color = "#1B6FAA", size = 3) +
         geom_segment(data= horizontal_lines_NYfinal, aes(x=2.6, y=0, xend=3.39, yend=0), color = "white", size = 3) +
         geom_segment(data= horizontal_lines_NYfinal, aes(x=6, y=0.4, xend=8, yend=0.4), color = "black", size = 3) +
         geom_segment(data= horizontal_lines_NYfinal, aes(x=6, y=-0.25, xend=8, yend=-.25), color = "black", size = 3) +
