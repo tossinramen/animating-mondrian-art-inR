@@ -53,9 +53,6 @@ server <- function(input, output, session) {
   
   iv <- InputValidator$new()
   iv$add_rule("numVerticalLines", sv_between(0, 10))
-  iv$enable()
-  
-  iv <- InputValidator$new()
   iv$add_rule("numHorizontalLines", sv_between(0, 10))
   iv$enable()
   
@@ -99,14 +96,14 @@ server <- function(input, output, session) {
       )
       
       num_vertical <- input$numVerticalLines
+      num_horizontal <- input$numHorizontalLines
+
       if (!iv$is_valid()) {
         num_vertical = 0
+        num_horizontal = 0
+
       }
       
-      num_horizontal <- input$numHorizontalLines
-      if (!iv$is_valid()) {
-        num_horizontal = 0
-      }
       
       vertical_lines <- data.frame(
         x = runif(num_vertical, min = 0, max = 10),
@@ -118,10 +115,7 @@ server <- function(input, output, session) {
         x = rep(c(0, 10), length.out = num_horizontal),
         y = runif(num_horizontal, min = 0, max = 10)
       )
-      
-      vertical_lines$x <- vertical_lines$x + input$moveLines
-      horizontal_lines$y <- horizontal_lines$y + input$moveLines
-      
+
       x_values = data.frame(x = c(2.5))
       y_values = data.frame(y = c(3))
       
