@@ -28,8 +28,6 @@ ui <- fluidPage(
                    min = 0, max = 10, value = 0),
       numericInput("numHorizontalLines", "Number of Horizontal Lines:",
                   min = 0, max = 10, value = 0),
-      sliderInput("moveLines", "Move Lines (Left/Right or Up/Down):",
-                  min = -5, max = 5, value = 0),
       submitButton("Create", icon("refresh")),
       tags$head(
         tags$style(HTML('
@@ -124,6 +122,21 @@ server <- function(input, output, session) {
       vertical_lines$x <- vertical_lines$x + input$moveLines
       horizontal_lines$y <- horizontal_lines$y + input$moveLines
       
+      x_values = data.frame(x = c(2.5))
+      y_values = data.frame(y = c(3))
+      
+      half_lines_horizontal = data.frame(
+        x_start = c(-0.5, 9), 
+        x_end = c(2.5, 10.5), 
+        y = c(7, 1.25)
+      )
+      
+      half_lines_vertical = data.frame(
+        x = 9,             
+        y_start = -0.5,       
+        y_end = 3          
+      )
+      
       ggplot() +
         geom_rect(
           data = rectangles,
@@ -166,11 +179,11 @@ server <- function(input, output, session) {
       
       
       rectangles <- data.frame(
-        xmin = c(-0.5, 2.5, 4, 6, 7.5),
-        xmax = c(1, 3.5, 6, 7.5, 9.7),
-        ymin = c(7.5, 0, 7.5, .5, 4),
-        ymax = c(10, 4, 7.5, 2, 10),
-        color = c("#E8B600", "white", "white", "#CC0000", "white")
+        xmin = c(-0.5, 6),
+        xmax = c(1, 7.5),
+        ymin = c(7.5, .4),
+        ymax = c(13, 2),
+        color = c("#E8B600", "#CC0000")
       )
       
       
@@ -185,6 +198,13 @@ server <- function(input, output, session) {
         y = c(2, 4, 6, 7.5)
       )
       
+      
+      additional_segments <- data.frame(
+        x_start = c(1.03, 2.6, 6, 6, 9.73),
+        x_end = c(3.97, 3.39, 8, 8, 11),
+        y = c(0.25, 0, 0.4, -0.25, 0.3),
+        color = c("#1B6FAA", "white", "black", "black", "#CC0000")
+      )
       
       num_vertical <- input$numVerticalLines
       if (!iv$is_valid()) {
@@ -210,16 +230,14 @@ server <- function(input, output, session) {
       vertical_lines_NYfinal <- rbind(vertical_lines_NYbase, vertical_lines)
       horizontal_lines_NYfinal <- rbind(horizontal_lines_NYbase, horizontal_lines)
       
+      
       ggplot() +
-        geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(color))) +
-        geom_segment(data = vertical_lines_NYfinal, aes(x = x, y = -0.5, xend = x, yend = y), color = "black", size = 2) +
-        geom_segment(data = horizontal_lines_NYfinal, aes(x = -0.5, y = y, xend = x, yend = y), color = "black", size = 4) +
-        geom_segment(data= horizontal_lines_NYfinal, aes(x=1.05, y=0.25, xend=3.95, yend=0.25), color = "#1B6FAA", size = 3) +
-        geom_segment(data= horizontal_lines_NYfinal, aes(x=2.6, y=0, xend=3.39, yend=0), color = "white", size = 3) +
-        geom_segment(data= horizontal_lines_NYfinal, aes(x=6, y=0.4, xend=8, yend=0.4), color = "black", size = 3) +
-        geom_segment(data= horizontal_lines_NYfinal, aes(x=6, y=-0.25, xend=8, yend=-.25), color = "black", size = 3) +
-        geom_segment(data= horizontal_lines_NYfinal, aes(x=9.8, y=0.3, xend=10, yend=0.3), color="#CC0000", size = 3) +
-        coord_cartesian(xlim = c(0, 10), ylim = c(0, 9.7)) +
+        geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = color)) +
+        scale_fill_identity() +
+        geom_vline(data = vertical_lines_NYfinal, aes(xintercept = x), color = "black", size = 2) +
+        geom_hline(data = horizontal_lines_NYfinal, aes(yintercept = y), color = "black", size = 4) +
+        geom_segment(data = additional_segments, aes(x = x_start, xend = x_end, y = y, yend = y, color = color), size = 3) +
+        scale_color_identity() +
         geom_vline(
           data = vertical_lines,
           aes(xintercept = x),
@@ -233,6 +251,7 @@ server <- function(input, output, session) {
           size = 4
         ) +
         scale_fill_manual(values = selected_palette) +
+        coord_cartesian(xlim = c(0, 10), ylim = c(0, 10)) +
         my_theme()
     } 
   })
