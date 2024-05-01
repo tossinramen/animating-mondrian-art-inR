@@ -12,7 +12,6 @@ params:
 editor: 
   markdown: 
     wrap: 72
-
 ---
 
 ```{r}
@@ -191,38 +190,31 @@ ggplot() +
 
 **Original Work #1**\
 
-<div style="display: flex; flex-direction: column; align-items: center;">
-
+::: {style="display: flex; flex-direction: column; align-items: center;"}
 ![](images/Mondrian%201.jpg){width="2.5in"}
-
-</div>
+:::
 
 #### Column {width="33%"}
 
 **Original Work #2**\
 
-<div style="display: flex; flex-direction: column; align-items: center;">
-
+::: {style="display: flex; flex-direction: column; align-items: center;"}
 ![](images/Mondrian%202.jpg){width="2.5in"}
-
-</div>
+:::
 
 #### Column {width="33%"}
 
 **Original Work #3**\
 
-<div style="display: flex; flex-direction: column; align-items: center;">
-
+::: {style="display: flex; flex-direction: column; align-items: center;"}
 ![](images/Mondrian%203.jpg){width="2.5in"}
-
-</div>
+:::
 
 # Animation
 
 ## Row {height="20%"}
 
 ```{r}
-
 #| label: plot-1
 
 vertical_lines1 <- data.frame(
@@ -335,10 +327,9 @@ segments3 <- data.frame(
 ```
 
 ```{r}
-
 #| label: everything-animation
-#| fig-width: 10
-#| fig-height: 10
+#| fig-width: 5
+#| fig-height: 5
 #| alt-text: "This animation transitions through three abstract compositions: Composition with Red, Blue, and Yellow, Composition No.10 and Composition with Yellow, Blue, and Red. The animation starts with a composition featuring red, blue, and yellow rectangles, interspersed with black grid lines. It then transitions to the second composition, which introduces a different arrangement of colored blocks and lines. The final composition highlights a yellow rectangle along with other segments and lines. Throughout the animation, the elements grow, shift, and change positions, creating a smooth transformation between the three compositions. The transitions use fading, growing, and other effects to move from one design to the next, emphasizing the evolving nature of the abstract grid structures."
 
 # Combine all data frames for vertical lines, horizontal lines, segments, and rectangles
@@ -376,7 +367,9 @@ combined_anim
 ## Row {height="40%"}
 
 ### Column {width="40%"}
+
 <a href="https://ishritgupta.shinyapps.io/MondrianApp/" class="customize-button">Customize</a>
+
 ```{css}
 .customize-button {
     display: inline-block;
@@ -403,44 +396,42 @@ combined_anim
 }
 ```
 
-
-
 # Write-up
 
 **Introduction**\
 
-Our project, "Mondrian Art" is an adventure into the
-transformation of Piet Mondrian's art using `ggplot2` and `gganimate`
-within R. Piet Mondrian, a pioneer in the
-development of modern abstract art and a major proponent of the Dutch
-abstract art movement De Stijl, used basic shapes and 
-forms—primarily rectangles, squares, and lines—and a restricted palette
-of primary colors, black, and white. His works give us a basic sandbox to play 
-with, which underscores one of our project's goal to animate
-transitions between his artworks. This not only visualizes the evolution
-of his art but provides a new perspective on understanding and
-interacting with abstract compositions. Another goal of ours is to be able to 
-replicate, at least in part, his idea of natural imperfections, by adding our
-own touches to his works.
+Our project, "Mondrian Art" is an adventure into the transformation of
+Piet Mondrian's art using `ggplot2` and `gganimate` within R. Piet
+Mondrian, a pioneer in the development of modern abstract art and a
+major proponent of the Dutch abstract art movement De Stijl, used basic
+shapes and forms—primarily rectangles, squares, and lines—and a
+restricted palette of primary colors, black, and white. His works give
+us a basic sandbox to play with, which underscores one of our project's
+goal to animate transitions between his artworks. This not only
+visualizes the evolution of his art but provides a new perspective on
+understanding and interacting with abstract compositions. Another goal
+of ours is to be able to replicate, at least in part, his idea of
+natural imperfections, by adding our own touches to his works.
 
 **Historical Context and Motivation**\
 
-Piet Mondrian's art was influenced by his desire to express
-the spiritual through the abstract; he had a love for the natural world and 
-life around him. Initially inspired by the landscape the many cities he lived in,
-he noted the interplay of lines and colors in nature. His work progressively 
-embraced the abstract, eventually evolving into the lines and squares we see.
-The influence of Post-Impressionists and his exposure to American jazz
-and city life in New York further fueled his abstract expressions. Our
-motivation stems from a fascination with Mondrian’s ability to convey
-deep aesthetic and philosophical meaning through minimalistic visual
-elements. We aim to demystify the nature of his paintings, using
-animations to visualize the dynamic motions potentially envisioned
-in Mondrian's creative mind. Mondrian's works, while seemingly perfect, often
-contain an accidentally crooked line, or squares the do not intersect perfectly.
-Some of his critics (and even students) would go on to try to correct this in 
-their own paintings, but this human imperfection that Mondrian was so fond of is
-one of the driving forces behind some of our technical applications.
+Piet Mondrian's art was influenced by his desire to express the
+spiritual through the abstract; he had a love for the natural world and
+life around him. Initially inspired by the landscape the many cities he
+lived in, he noted the interplay of lines and colors in nature. His work
+progressively embraced the abstract, eventually evolving into the lines
+and squares we see. The influence of Post-Impressionists and his
+exposure to American jazz and city life in New York further fueled his
+abstract expressions. Our motivation stems from a fascination with
+Mondrian’s ability to convey deep aesthetic and philosophical meaning
+through minimalistic visual elements. We aim to demystify the nature of
+his paintings, using animations to visualize the dynamic motions
+potentially envisioned in Mondrian's creative mind. Mondrian's works,
+while seemingly perfect, often contain an accidentally crooked line, or
+squares the do not intersect perfectly. Some of his critics (and even
+students) would go on to try to correct this in their own paintings, but
+this human imperfection that Mondrian was so fond of is one of the
+driving forces behind some of our technical applications.
 
 **Technical Implementation**\
 
@@ -449,48 +440,48 @@ artworks: "Composition with Red, Blue, and Yellow", "Composition N.10",
 and "Composition with Yellow, Blue, and Red". These digital
 reproductions served as the groundwork for our animations, which were
 animated using `gganimate` to simulate transitions that bring the
-changes throughout Mondrian's art to life. This involved  altering
-line segments and color fields to morph one painting into another,
-highlighting the common boxes and lines between the three paintings. We then 
-created a shiny app that allows users to interact with Mondrian's work, adding
-their own human touch. Note, all the lines someone can add are placed randomly,
-so two people will never have the same artwork. 
+changes throughout Mondrian's art to life. This involved altering line
+segments and color fields to morph one painting into another,
+highlighting the common boxes and lines between the three paintings. We
+then created a shiny app that allows users to interact with Mondrian's
+work, adding their own human touch. Note, all the lines someone can add
+are placed randomly, so two people will never have the same artwork.
 
 These animations not only serve to illustrate Mondrian's artistic
-evolution but also emphasize the power of minimalist art taking shape in 
-different forms. Through this endeavor, we observed
-how subtle modifications in geometric forms and their interactions could
-dramatically alter visual perception and convey movement and growth. 
+evolution but also emphasize the power of minimalist art taking shape in
+different forms. Through this endeavor, we observed how subtle
+modifications in geometric forms and their interactions could
+dramatically alter visual perception and convey movement and growth.
 
-Through the app, we emphasize the innate imperfections we have. While our
-animations may contain pixel-perfect straight lines, by adding our human touch,
-we add some degree of imperfections back into Mondrian's art. 
-This tool empowers users to alter the number of lines, modify the color
-schemes, and shift positions, thus offering a hands-on experience of
-Mondrian's methods and artistic decisions. This interactive component is
-designed to deepen the user's understanding of neoplasticism by enabling
-them to explore and experiment with its defining features actively.
+Through the app, we emphasize the innate imperfections we have. While
+our animations may contain pixel-perfect straight lines, by adding our
+human touch, we add some degree of imperfections back into Mondrian's
+art. This tool empowers users to alter the number of lines, modify the
+color schemes, and shift positions, thus offering a hands-on experience
+of Mondrian's methods and artistic decisions. This interactive component
+is designed to deepen the user's understanding of neoplasticism by
+enabling them to explore and experiment with its defining features
+actively.
 
 **Conclusion**\
 
-"Mondrian Art" combines a historical art piece with modern
-technological tools, showcasing how digital media can offer new
-insights into a rather abstract art forms. This project not only enhanced
-our skills in animation and data visualization but also deepened our
-appreciation of the complexities inherent in abstract art. By converting
-static images into one animation, our viewers to engage with
-Mondrian’s work in a new manner, thus broadening the
-accessibility and understanding of his art through the lens of data
-visualization. Our app then allows viewers to engage directly with some of 
-his pieces. They get to experience some of the imperfections Mondrian was
-so fond of.
+"Mondrian Art" combines a historical art piece with modern technological
+tools, showcasing how digital media can offer new insights into a rather
+abstract art forms. This project not only enhanced our skills in
+animation and data visualization but also deepened our appreciation of
+the complexities inherent in abstract art. By converting static images
+into one animation, our viewers to engage with Mondrian’s work in a new
+manner, thus broadening the accessibility and understanding of his art
+through the lens of data visualization. Our app then allows viewers to
+engage directly with some of his pieces. They get to experience some of
+the imperfections Mondrian was so fond of.
 
-In conclusion, "Mondrian Art" is a tool connecting the past with the present.
-Art lovers and technologists alike explore the beauty and complexity
-of Mondrian’s works through modern visualization techniques. Through
-this project, we have laid a foundation for future explorations into the
-digital representation of abstract art, and we hope to inspire others to
-explore this enriching field.
+In conclusion, "Mondrian Art" is a tool connecting the past with the
+present. Art lovers and technologists alike explore the beauty and
+complexity of Mondrian’s works through modern visualization techniques.
+Through this project, we have laid a foundation for future explorations
+into the digital representation of abstract art, and we hope to inspire
+others to explore this enriching field.
 
 # About the Art
 
