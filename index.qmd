@@ -187,27 +187,34 @@ ggplot() +
 
 ### Row {height="50%"}
 
-### Column {width="100%"}
+#### Column {width="33%"}
 
-<style>
-.image-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+**Original Work #1**\
 
-.image-container img {
-  width: 2.5in; /* Adjust the width of each image */
-  margin: 0 100px; /* Adjust the horizontal spacing between images */
-}
-</style>
+<div style="display: flex; flex-direction: column; align-items: center;">
 
-**Original Work**
+![](images/Mondrian%201.jpg){width="2.5in"}
 
-<div class="image-container">
-  <img src="images/Mondrian%201.jpg" alt="Mondrian 1">
-  <img src="images/Mondrian%202.jpg" alt="Mondrian 2">
-  <img src="images/Mondrian%203.jpg" alt="Mondrian 3">
+</div>
+
+#### Column {width="33%"}
+
+**Original Work #2**\
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+
+![](images/Mondrian%202.jpg){width="2.5in"}
+
+</div>
+
+#### Column {width="33%"}
+
+**Original Work #3**\
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+
+![](images/Mondrian%203.jpg){width="2.5in"}
+
 </div>
 
 # Animation
