@@ -188,26 +188,26 @@ ggplot() +
 
 #### Column {width="33%"}
 
-**Original Work #1**\
+**Original**\
 
-::: {style="display: flex; flex-direction: column; align-items: center;"}
-![](images/Mondrian%201.jpg){width="2.5in"}
+::: {style="display: flex; flex-direction: column; align-items: center; height: 100%;"}
+![](images/Mondrian%201.jpg){style="max-width: 100%; max-height: 100%; object-fit: contain;"}
 :::
 
 #### Column {width="33%"}
 
-**Original Work #2**\
+**Original**\
 
-::: {style="display: flex; flex-direction: column; align-items: center;"}
-![](images/Mondrian%202.jpg){width="2.5in"}
+::: {style="display: flex; flex-direction: column; align-items: center; height: 100%;"}
+![](images/Mondrian%202.jpg){style="max-width: 100%; max-height: 100%; object-fit: contain;"}
 :::
 
 #### Column {width="33%"}
 
-**Original Work #3**\
+**Original**\
 
-::: {style="display: flex; flex-direction: column; align-items: center;"}
-![](images/Mondrian%203.jpg){width="2.5in"}
+::: {style="display: flex; flex-direction: column; align-items: center; height: 100%;"}
+![](images/Mondrian%203.jpg){style="max-width: 100%; max-height: 100%; object-fit: contain;"}
 :::
 
 # Animation
