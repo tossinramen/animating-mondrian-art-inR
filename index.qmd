@@ -12,7 +12,6 @@ params:
 editor: 
   markdown: 
     wrap: 72
-
 ---
 
 ```{r}
@@ -200,7 +199,6 @@ ggplot() +
 ## Row {height="20%"}
 
 ```{r}
-
 #| label: plot-1
 
 vertical_lines1 <- data.frame(
@@ -313,7 +311,6 @@ segments3 <- data.frame(
 ```
 
 ```{r}
-
 #| label: everything-animation
 #| fig-width: 10
 #| fig-height: 10
@@ -354,7 +351,9 @@ combined_anim
 ## Row {height="40%"}
 
 ### Column {width="40%"}
+
 <a href="https://ishritgupta.shinyapps.io/MondrianApp/" class="customize-button">Customize</a>
+
 ```{css}
 .customize-button {
     display: inline-block;
@@ -380,8 +379,6 @@ combined_anim
   transform: translateY(4px);
 }
 ```
-
-
 
 # Write-up
 
