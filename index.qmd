@@ -400,6 +400,9 @@ combined_anim
 
 **Introduction**\
 
+Question: How can We use animated transitions and interactive elements to better
+understand Piet Mondrian's abstract style and aesthetic principles. 
+
 Our project, "Mondrian Art" is an adventure into the transformation of
 Piet Mondrian's art using `ggplot2` and `gganimate` within R. Piet
 Mondrian, a pioneer in the development of modern abstract art and a
@@ -412,6 +415,8 @@ visualizes the evolution of his art but provides a new perspective on
 understanding and interacting with abstract compositions. Another goal
 of ours is to be able to replicate, at least in part, his idea of
 natural imperfections, by adding our own touches to his works.
+
+
 
 **Historical Context and Motivation**\
 
