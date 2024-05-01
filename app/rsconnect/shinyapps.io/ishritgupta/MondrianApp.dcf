@@ -5,7 +5,7 @@ account: ishritgupta
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11905412
-bundleId: 8561182
+bundleId: 8562631
 url: https://ishritgupta.shinyapps.io/MondrianApp/
 version: 1
 asMultiple: FALSE

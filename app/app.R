@@ -40,8 +40,13 @@ ui <- fluidPage(
       )
     ),
     mainPanel(
-      plotOutput("artDisplay", width = "650px", height = "650px")
-    )
+      plotOutput("artDisplay", width = "650px", height = "650px"),
+      br(),
+        "*Note*: Lines  are not going to change colors. They represent depth
+      and perception in the original works and",
+      br(),
+      "will be preserved in their original colors, or be added as black."
+    ),
   )
 )
 

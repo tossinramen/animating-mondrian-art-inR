@@ -400,8 +400,8 @@ combined_anim
 
 **Introduction**\
 
-Question: How can We use animated transitions and interactive elements to better
-understand Piet Mondrian's abstract style and aesthetic principles. 
+Question: How can we use animated transitions and interactive elements to better
+understand Piet Mondrian's abstract style and aesthetic principles? 
 
 Our project, "Mondrian Art" is an adventure into the transformation of
 Piet Mondrian's art using `ggplot2` and `gganimate` within R. Piet
@@ -479,10 +479,13 @@ into one animation, our viewers to engage with Mondrian’s work in a new
 manner, thus broadening the accessibility and understanding of his art
 through the lens of data visualization. Our app then allows viewers to
 engage directly with some of his pieces. They get to experience some of
-the imperfections Mondrian was so fond of.
+the imperfections Mondrian chose not to try to clean up, leaving his touch of 
+personality.
 
 In conclusion, "Mondrian Art" is a tool connecting the past with the
-present. Art lovers and technologists alike explore the beauty and
+present. It allows us to use animated transitions and interactive elements to
+better understand Piet Mondrian's abstract style and aesthetic principles.
+Art lovers and technologists alike explore the beauty and
 complexity of Mondrian’s works through modern visualization techniques.
 Through this project, we have laid a foundation for future explorations
 into the digital representation of abstract art, and we hope to inspire
